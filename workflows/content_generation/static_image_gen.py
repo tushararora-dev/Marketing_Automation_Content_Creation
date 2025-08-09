@@ -35,7 +35,7 @@ def generate_static_images(
         try:
             image = generate_single_static_image(
                 content_strategy=content_strategy,
-                image_type=image_type["type"],
+                image_type=image_type["type"],  
                 brand_colors=brand_colors,
                 description=image_type["description"]
             )
@@ -89,7 +89,6 @@ def generate_single_static_image(
         "variations": generate_image_variations(image_type, image_prompt),
         "optimization": get_optimization_settings(image_type)
     }
-    
     return image
 
 def create_image_prompt(
@@ -502,3 +501,4 @@ def create_image_templates(content_strategy: Dict[str, Any]) -> Dict[str, Any]:
     }
     
     return templates
+

@@ -140,14 +140,14 @@ def content_generation_interface():
         # Product/service description
         product_description = st.text_area(
             "Product/Service Description",
-            placeholder="Describe the product or service you want to create content for...",
+            placeholder="Describe the product or service you want to create content for e.g., Launch a matcha drink for Gen Z",
             height=100
         )
         
         # Target audience
         target_audience = st.text_input(
             "Target Audience",
-            placeholder="e.g., busy moms aged 30-45, Gen Z health enthusiasts"
+            placeholder="e.g., aged 30-45, Gen Z health enthusiasts"
         )
         
         # Content types
@@ -189,7 +189,7 @@ def content_generation_interface():
                             brand_tone=brand_tone,
                             brand_colors=brand_colors
                         )
-                        
+                        print(result)
                         st.session_state.content_result = result
                         st.success("Content generated successfully!")
                         
@@ -200,8 +200,22 @@ def content_generation_interface():
     
     with col2:
         st.subheader("Content Templates")
-        st.write("🎯 Ad Copy Templates")
-        st.write("📱 Social Media Templates")
+        
+        st.markdown("### 🎯 Ad Copy Templates", unsafe_allow_html=True)
+        st.markdown("""
+        <div style='text-align: justify;'>
+            Provide complete ad creative deliverables including headline, primary text, call-to-action, description, 
+            character counts, platform-specific adaptations, and the full response.
+        </div>
+        """, unsafe_allow_html=True)
+
+        st.markdown("### 📱 Social Media Templates", unsafe_allow_html=True)
+        st.markdown("""
+        <div style='text-align: justify;'>
+            Provide complete captions with relevant hashtags for Instagram, LinkedIn, TikTok, and other platforms.
+        </div>
+        """, unsafe_allow_html=True)
+
         st.write("🖼️ Visual Asset Templates")
         st.write("🎬 Video Script Templates")
     
@@ -265,6 +279,10 @@ def display_content_results(result):
             with st.expander(f"Ad Copy Variant {i}"):
                 st.write("**Headline:**", copy.get('headline', ''))
                 st.write("**Primary Text:**", copy.get('primary_text', ''))
+                st.write("**Description:**", copy.get('description', ''))
+                # st.write("**Description:**", copy.get('character_counts', ''))
+                # st.write("**Description:**", copy.get('platform_adaptations', ''))
+                # st.write("**Description:**", copy.get('full_response', ''))
                 st.write("**CTA:**", copy.get('cta', ''))
     
     # Social media captions

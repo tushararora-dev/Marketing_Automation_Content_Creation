@@ -15,7 +15,7 @@ def load_config() -> Dict[str, Any]:
         
         # Model Configuration
         "groq_model": "llama3-8b-8192",
-        "huggingface_image_model": "stabilityai/stable-diffusion-2-1",
+        "huggingface_image_model": "stabilityai/stable-diffusion-3-medium-diffusers",
         
         # API Endpoints
         "groq_api_url": "https://api.groq.com/openai/v1/chat/completions",
