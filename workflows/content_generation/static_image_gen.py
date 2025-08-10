@@ -79,7 +79,8 @@ def generate_single_static_image(
         "type": image_type,
         "description": description,
         "prompt": image_prompt,
-        "url": image_result.get("url", ""),
+        "image_obj": image_result.get("image_obj"),  # get image object, not URL
+        # "url": image_result.get("url", ""),
         "dimensions": get_image_dimensions(image_type),
         "style": get_image_style(image_type),
         "brand_colors": brand_colors,
@@ -196,14 +197,29 @@ def get_image_style(image_type: str) -> str:
 def get_image_dimensions(image_type: str) -> str:
     """Get optimal dimensions for different image types"""
     
+    # dimensions = {
+    #     # change when i working on gpt or other
+    #     "hero_image": "1920x1080",
+    #     "social_post": "1080x1080",
+    #     "ad_creative": "1200x628",
+    #     "product_showcase": "1000x1000"
+    # }
+
+    # dimensions = {
+    #     "hero_image": "1024x576",
+    #     "social_post": "768x768",
+    #     "ad_creative": "1024x544",
+    #     "product_showcase": "768x768"
+    # }
+
     dimensions = {
-        "hero_image": "1920x1080",
-        "social_post": "1080x1080",
-        "ad_creative": "1200x628",
-        "product_showcase": "1000x1000"
+        "hero_image": "1920x1072",
+        "social_post": "1072x1072",
+        "ad_creative": "1200x624",
+        "product_showcase": "992x992"
     }
-    
-    return dimensions.get(image_type, "1080x1080")
+
+    return dimensions.get(image_type, "1072x1072")
 
 def generate_alt_text(image_type: str, content_strategy: Dict[str, Any]) -> str:
     """Generate descriptive alt text for accessibility"""
@@ -322,7 +338,7 @@ def generate_email_header(content_strategy: Dict[str, Any], brand_colors: str) -
         return {
             "type": "email_header",
             "description": "Professional email header with brand elements",
-            "url": header_result.get("url", ""),
+            "image_obj": header_result.get("image_obj"),
             "dimensions": "600x200",
             "file_name": f"email_header_{generate_timestamp()}.png",
             "usage": "Email campaigns, newsletters"
@@ -358,7 +374,7 @@ def generate_email_hero(content_strategy: Dict[str, Any], brand_colors: str) -> 
         return {
             "type": "email_hero",
             "description": "Engaging hero image for email body",
-            "url": hero_result.get("url", ""),
+            "image_obj": hero_result.get("image_obj"),
             "dimensions": "600x400",
             "file_name": f"email_hero_{generate_timestamp()}.png",
             "usage": "Email body, main content section"
@@ -393,7 +409,7 @@ def generate_email_footer(content_strategy: Dict[str, Any], brand_colors: str) -
         return {
             "type": "email_footer",
             "description": "Professional email footer with social elements",
-            "url": footer_result.get("url", ""),
+            "image_obj": footer_result.get("image_obj"),
             "dimensions": "600x150",
             "file_name": f"email_footer_{generate_timestamp()}.png",
             "usage": "Email footer, contact information section"
@@ -431,7 +447,7 @@ def generate_email_cta_buttons(content_strategy: Dict[str, Any], brand_colors: s
         cta_buttons.append({
             "type": "primary_cta_button",
             "description": "Primary call-to-action button",
-            "url": primary_result.get("url", ""),
+            "image_obj": primary_result.get("image_obj"),
             "dimensions": "200x50",
             "file_name": f"primary_cta_{generate_timestamp()}.png",
             "usage": "Main email CTA, primary actions"
@@ -464,7 +480,7 @@ def generate_email_cta_buttons(content_strategy: Dict[str, Any], brand_colors: s
         cta_buttons.append({
             "type": "secondary_cta_button",
             "description": "Secondary call-to-action button",
-            "url": secondary_result.get("url", ""),
+            "image_obj": primary_result.get("image_obj"),
             "dimensions": "180x40",
             "file_name": f"secondary_cta_{generate_timestamp()}.png",
             "usage": "Secondary email CTA, supporting actions"

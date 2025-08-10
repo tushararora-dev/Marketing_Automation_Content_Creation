@@ -3,14 +3,25 @@ import json
 import time
 from typing import Dict, Any, Optional
 from config.settings import load_config, get_huggingface_headers
+from io import BytesIO
+from PIL import Image
 
 # Load configuration
 config = load_config()
+import replicate
 
+
+# Initialize Replicate client once (you can move this outside the function if you want)
+replicate_client = replicate.Client(api_token=config["replicate_api_key"])
+
+
+
+
+#----- Used for Hugging face---
 def generate_image(
     prompt: str,
     style: str = "professional, high quality",
-    dimensions: str = "1024x1024"
+    dimensions: str = "1072x1072"
 ) -> Dict[str, Any]:
     """
     Generate image using HuggingFace Inference API
@@ -28,7 +39,9 @@ def generate_image(
     enhanced_prompt = f"{prompt}, {style}, high resolution, detailed"
     
     # Parse dimensions
-    width, height = parse_dimensions(dimensions)
+    # width, height = parse_dimensions(dimensions)
+    width = 1072
+    height = 1072
     
     # Prepare API request
     api_url = f"{config['huggingface_api_url']}/{config['huggingface_image_model']}"
@@ -58,7 +71,7 @@ def generate_image(
             if response.status_code == 200:
                 # HuggingFace returns image data directly
                 image_data = response.content
-                
+                image = Image.open(BytesIO(image_data))
                 # Save image temporarily and return info
                 timestamp = str(int(time.time()))
                 filename = f"generated_image_{timestamp}.png"
@@ -66,7 +79,8 @@ def generate_image(
                 # In a real implementation, you'd save to cloud storage
                 # For now, return metadata
                 return {
-                    "url": f"[GENERATED_IMAGE_{timestamp}]",
+                    "image_obj": image,
+                    # "url": f"[GENERATED_IMAGE_{timestamp}]",
                     "filename": filename,
                     "prompt": enhanced_prompt,
                     "dimensions": f"{width}x{height}",
@@ -95,6 +109,12 @@ def generate_image(
             time.sleep(wait_time)
     
     raise Exception("Failed to generate image")
+
+
+
+
+
+
 
 def generate_multiple_images(
     prompts: list,

@@ -24,22 +24,117 @@ def main():
     st.sidebar.title("👉 Navigation")
     selected_agent = st.sidebar.selectbox(
         "Choose Agent",
-        ["Marketing Automation Agent", "Content Generation Agent"]
+        ["About Me", "Marketing Automation Agent", "Content Generation Agent"]
     )
     
     if selected_agent == "Marketing Automation Agent":
         marketing_automation_interface()
-    else:
-        st.sidebar.title("⚙️ Features")
+    elif selected_agent == "Content Generation Agent":
+        st.sidebar.title("⚙️ Features Prototype")
         st.sidebar.write("✅ Prompt-to-Content Generation")
-        st.sidebar.write("❌ Ad & Social Content Creation")
-        st.sidebar.write("❌ Creative Asset Generation")
-        st.sidebar.write("❌ UGC/Video Content Scripting & Editing")
+        st.sidebar.write("✅ Ad & Social Content Creation")
+        st.sidebar.write("✅ Creative Asset Generation")
+        st.sidebar.write("✅ UGC/Video Content Scripting & Editing")
         st.sidebar.write("❌ Rich Media / Interactive Content")
         st.sidebar.write("❌ Edit, Iterate, Personalize")
         st.sidebar.write("❌ Integration & Deployment")
         st.sidebar.write("❌ Modularity & Reusability")
         content_generation_interface()
+    else:
+        st.sidebar.markdown(
+            """
+            <div style='text-align: justify;'>
+            🚀 Project Overview
+
+            This project showcases a combined solution for **Marketing Automation** and **AI-Powered Content Creation**.
+
+            - The **Marketing Automation** module enables users to automate multi-channel campaigns, audience segmentation, lead scoring, and performance tracking — leveraging AI and integrations with platforms like Klaviyo for seamless execution.
+            
+            - The **Content Creation** module empowers users to generate high-quality marketing assets including ad copy, email templates, social media captions, UGC video scripts, and more — all powered by advanced AI and retrieval-augmented generation techniques.
+
+            Together, these modules demonstrate how AI can streamline marketing workflows, personalize customer engagement, and accelerate content production at scale.
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+        about_me()
+
+
+
+def about_me():
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.header("📈 Marketing Automation")
+        st.write("""
+        🚀 Marketing Automation allows businesses to streamline, automate, and measure marketing tasks and workflows to increase operational efficiency and grow revenue faster.
+
+        🔑 **Key capabilities include:**
+
+        - 📧 **Multi-channel Campaigns:** Automate email, SMS, push notifications, and social messaging to reach customers wherever they are.
+        - 🎯 **Personalized Content Delivery:** Use AI to dynamically create tailored messages based on customer behavior, preferences, and lifecycle stage.
+        - 🔥 **Lead Scoring & Segmentation:** Automatically segment your audience and prioritize leads based on engagement data and predictive models.
+        - ⏰ **Automated Follow-ups:** Set up triggered sequences like drip campaigns that nurture leads or re-engage inactive customers.
+        - 📊 **Performance Tracking & Reporting:** Measure campaign effectiveness with analytics dashboards and use insights to optimize future campaigns.
+        - 🔗 **Integration with Platforms:** Connect with services like Klaviyo, Mailchimp, Twilio, and CRMs to leverage their powerful APIs for contact management, campaign execution, and data synchronization.
+        - 🤖 **AI-powered Content Generation:** Combine with AI tools to generate campaign copy, subject lines, and messaging variants on the fly, increasing creativity and efficiency.
+
+        🎯 With marketing automation, businesses can deliver the right message to the right person at the right time — all at scale.
+        """)
+
+    with col2:
+        st.header("🎨 Content Creation")
+        st.write("""
+        AI-Powered Content Creation Possibilities:
+
+        **✍️ Text Content**
+        - 📝 Ad Copy (headlines, taglines, body text for ads)
+        - 📧 Email Assets (headers, footers, CTA buttons, subject lines, email body)
+        - 📱 Social Media Captions (with hashtags, tone/style matching brand)
+        - 📰 Blog Posts & Articles (long-form or short-form)
+        - 🛍️ Product Descriptions (e-commerce descriptions, features, benefits)
+        - 🎬 Video Scripts (UGC scripts, explainer videos, tutorials)
+        - 🏆 Landing Page Copy (headlines, benefits, testimonials)
+        - 🔍 SEO Content (keywords, meta descriptions, FAQs)
+        - 📢 Press Releases (announcements, new launches)
+        - 🤖 Chatbot Dialogues (customer service scripts, FAQs)
+        - 📖 Storytelling Content (brand stories, customer success stories)
+
+        **🖼️ Image & Visual Content**
+        - 🖼️ Static Images (product images, marketing banners, social posts)
+        - 🎨 AI-Generated Illustrations (custom artwork, brand mascots)
+        - 📊 Infographics (visual data representation)
+        - 😂 Memes (for social engagement)
+        - 🛡️ Logo Concepts (initial design ideas)
+        - 🎭 Image Variations (style transfer, color modifications)
+        - 📦 Product Mockups (placing product images on real-world backgrounds)
+
+        **🎥 Video & Multimedia**
+        - 🤖 AI Video Generation (from scripts, text-to-video tools)
+        - 📽️ Animated Explainers (short clips explaining product/features)
+        - 🎥 UGC Video Scripts (user-generated content style videos)
+        - 🎙️ Voiceover/Narration (AI-generated voices matching scripts)
+        - 📝 Subtitles/Closed Captions (auto-generated captions for videos)
+        - 🖼️ Video Thumbnails (eye-catching images for video previews)
+        - 📲 Social Stories (Instagram/Facebook story content)
+
+        **🎧 Audio Content**
+        - 🎙️ Podcasts Scripts (episode outlines, talking points)
+        - 📚 Audiobook Narration (text-to-speech for books or articles)
+        - 🎵 Jingles and Audio Ads (short catchy music clips)
+        - 🗣️ Voice Cloning (personalized voice assistants or narrators)
+
+        **🧩 Interactive Content**
+        - ❓ Quizzes & Polls (engaging user interaction)
+        - 🤖 Chatbots & Virtual Assistants (AI-driven customer support)
+        - 🎯 Personalized Recommendations (product or content suggestions)
+
+        **📊 Data & Research**
+        - 📈 Market Research Summaries (trends, competitor analysis)
+        - 🕵️ Customer Insights (sentiment analysis, feedback summaries)
+        - 📉 Content Performance Reports (analytics and suggestions)
+        """)
 
 def marketing_automation_interface():
     st.header("📧 Marketing Automation Agent")
@@ -162,6 +257,8 @@ def content_generation_interface():
                 content_types.append("social_captions")
             if st.checkbox("Email Creative Assets"):
                 content_types.append("email_creative")
+            if st.checkbox("Generate Logo (Coming Soon)", value=False, disabled=True):
+                content_types.append("logo")
         
         with col_b:
             if st.checkbox("Static Images"):
@@ -169,6 +266,8 @@ def content_generation_interface():
             if st.checkbox("UGC Video Scripts"):
                 content_types.append("ugc_scripts")
             if st.checkbox("Product Visuals"):
+                content_types.append("product_visuals")
+            if st.checkbox("AI Video Generator(Coming Soon)", value=False, disabled=True):
                 content_types.append("product_visuals")
         
         # Brand guidelines
@@ -200,28 +299,52 @@ def content_generation_interface():
     
     with col2:
         st.subheader("Content Templates")
-        
-        st.markdown("### 🎯 Ad Copy Templates", unsafe_allow_html=True)
+        st.markdown("##### 🎯 Ad Copy Templates", unsafe_allow_html=True)
         st.markdown("""
         <div style='text-align: justify;'>
             Provide complete ad creative deliverables including headline, primary text, call-to-action, description, 
             character counts, platform-specific adaptations, and the full response.
-        </div>
+        </div><br>
+            
         """, unsafe_allow_html=True)
-
-        st.markdown("### 📱 Social Media Templates", unsafe_allow_html=True)
+        st.markdown("##### 📱 Social Media Templates", unsafe_allow_html=True)
         st.markdown("""
         <div style='text-align: justify;'>
             Provide complete captions with relevant hashtags for Instagram, LinkedIn, TikTok, and other platforms.
+        </div><br>
+        """, unsafe_allow_html=True)
+        st.markdown("##### 🖼️ Static and Product Visual", unsafe_allow_html=True)
+        st.markdown("""
+        <div style='text-align: justify;'>
+            Generate the following image types: ad_creative (advertising creative), product_showcase (product showcase image), social_post (social media post image), and hero_image (main campaign hero image).
+        </div><br>
+        """, unsafe_allow_html=True)
+        st.markdown("##### 🎥 UGC Video Script", unsafe_allow_html=True)
+        st.markdown("""
+        <div style='text-align: justify;'>
+            Generate ugc video script with title, duration, timeline, dialoge, Visual Directions, Props/Setup Requirements etc. for tiktok, insta, youtube and facebook.
+        </div><br>
+        """, unsafe_allow_html=True)
+
+        st.markdown("##### 📧 Email Assets", unsafe_allow_html=True)
+        st.markdown("""
+        <div style='text-align: justify;'>
+            Generate email header, hero section, footer, and CTA buttons as email assets.
         </div>
         """, unsafe_allow_html=True)
 
-        st.write("🖼️ Visual Asset Templates")
-        st.write("🎬 Video Script Templates")
+
+
     
     # Display results
     if hasattr(st.session_state, 'content_result') and st.session_state.content_result:
         display_content_results(st.session_state.content_result)
+
+
+
+
+
+
 
 def display_marketing_results(result):
     st.header("📊 Generated Marketing Campaign")
@@ -247,7 +370,7 @@ def display_marketing_results(result):
         st.subheader("📱 SMS Sequence")
         for i, sms in enumerate(result['sms'], 1):
             with st.expander(f"SMS {i}"):
-                st.write(sms.get('message', ''))
+                st.write(sms.get('extract_sms', ''))
     
     # Export options
     st.subheader("📥 Export Options")
@@ -299,8 +422,10 @@ def display_content_results(result):
         st.subheader("🖼️ Generated Images")
         for image_info in result['images']:
             st.write(f"**{image_info['type']}:** {image_info['description']}")
-            if 'url' in image_info:
-                st.image(image_info['url'])
+            if image_info.get("image_obj") is not None:
+                st.image(image_info["image_obj"], width=400)
+            else:
+                st.write("Image not available")
     
     # UGC scripts
     if 'ugc_scripts' in result:
@@ -310,6 +435,16 @@ def display_content_results(result):
                 st.write("**Duration:**", script.get('duration', ''))
                 st.write("**Script:**")
                 st.write(script.get('script', ''))
+
+    # email assets
+    if 'email_assets' in result:
+        st.subheader("📧 Email Assets")
+        for image_info in result['email_assets']:
+            st.write(f"**{image_info['type']}:** {image_info['description']}")
+            if image_info.get("image_obj") is not None:
+                st.image(image_info["image_obj"], width=400)
+            else:
+                st.write("Image not available")
     
     # Export options
     st.subheader("📥 Export Options")

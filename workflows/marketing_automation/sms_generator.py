@@ -90,6 +90,7 @@ def parse_sms_response(sms_text: str, sms_plan: Dict[str, Any], sequence_number:
         "message": message,
         "character_count": len(message),
         "link_included": check_for_link(message),
+        "extract_sms" :extract_sms_message(message),
         "personalization": extract_sms_personalization(message),
         "timing": get_sms_timing(sms_plan),
         "compliance": check_sms_compliance(message),
