@@ -1,0 +1,681 @@
+{
+  "timestamp": "2025-08-12T09:45:04.382316",
+  "brand_name": "Euron.One",
+  "campaign_type": "Cart Abandonment",
+  "campaign_overview": {
+    "campaign_type": "Cart Abandonment",
+    "objective": "To recover abandoned purchases and increase conversion rates among General customers.",
+    "strategy": "**Messaging Strategy and Key Themes**  Core Value Proposition: High-quality products and services.",
+    "timeline": [
+      {
+        "sequence": 1,
+        "type": "email",
+        "trigger_hours": 1,
+        "trigger_description": "Send email 1 after 1 hours"
+      },
+      {
+        "sequence": 1,
+        "type": "sms",
+        "trigger_hours": 48,
+        "trigger_description": "Send SMS 1 after 48 hours"
+      }
+    ],
+    "email_sequence": [
+      {
+        "email_number": 1,
+        "purpose": "Gentle reminder",
+        "focus": "Complete your purchase",
+        "key_message": "Email 1: Complete your purchase"
+      }
+    ],
+    "sms_sequence": [
+      {
+        "sms_number": 1,
+        "purpose": "Urgent reminder",
+        "focus": "Quick action needed",
+        "key_message": "SMS 1: Quick action needed"
+      },
+      {
+        "sms_number": 2,
+        "purpose": "Special offer",
+        "focus": "Exclusive mobile discount",
+        "key_message": "SMS 2: Exclusive mobile discount"
+      }
+    ],
+    "triggers": {
+      "start_trigger": "User adds items to cart but doesn't complete purchase within 1 hour",
+      "conditions": [
+        "Cart value > $0",
+        "User has email address",
+        "User hasn't completed purchase",
+        "User isn't in other active campaigns"
+      ],
+      "exclusions": [
+        "User has opted out of marketing emails",
+        "User has hard bounced email address",
+        "User is in suppression list",
+        "User has completed target action in last 24 hours"
+      ]
+    },
+    "success_metrics": [
+      "Open rate > 25%",
+      "Click-through rate > 3%",
+      "Conversion rate > 2%",
+      "Revenue per email > $1",
+      "Unsubscribe rate < 0.5%"
+    ],
+    "personalization": {
+      "name_personalization": true,
+      "product_recommendations": true,
+      "behavioral_triggers": true,
+      "dynamic_content": [
+        "Product images based on cart items",
+        "Personalized subject lines",
+        "Location-based offers",
+        "Purchase history references"
+      ],
+      "segmentation": [
+        "First-time visitors",
+        "Returning customers",
+        "High-value customers",
+        "Inactive users"
+      ]
+    },
+    "full_plan": "**Campaign Overview and Objectives**\n\nCampaign Name: Cart Abandonment Recovery\n\nObjective: To recover abandoned purchases and increase conversion rates among General customers.\n\nPrimary Goal: To send targeted and personalized messages to customers who have abandoned their carts, encouraging them to complete their purchases and increase revenue.\n\n**Target Audience Profile and Segmentation**\n\nTarget Audience: General customers who have added products to their cart but have not completed their purchase within 1-4 hours.\n\nSegmentation: Based on purchase history, browsing behavior, and cart abandonment frequency.\n\n**Messaging Strategy and Key Themes**\n\nCore Value Proposition: High-quality products and services.\n\nKey Messages:\n\n1. Convenience: We care about your time and want to make sure you have the best shopping experience.\n2. Urgency: Don't miss out on the products you need - complete your purchase today!\n3. Value Reinforcement: Our products are high-quality and worth every penny.\n\nTone: Professional\n\n**Email Sequence Plan**\n\nEmail 1: Gentle Reminder\n\n* Subject: Don't forget about your cart!\n* Purpose: To remind the customer about their abandoned cart and encourage them to complete their purchase.\n* Timing: 1 hour after cart abandonment\n\nEmail 2: Value Reinforcement\n\n* Subject: You've got this! Complete your purchase now!\n* Purpose: To reinforce the value of the products and encourage the customer to complete their purchase.\n* Timing: 24 hours after cart abandonment\n\n**SMS Sequence Plan**\n\nSMS 1: Urgency Creation\n\n* Purpose: To create a sense of urgency and encourage the customer to complete their purchase.\n* Timing: 1 hour after cart abandonment\n\nSMS 2: Final Incentive\n\n* Purpose: To provide a final incentive for the customer to complete their purchase.\n* Timing: 3 days after cart abandonment\n\n**Trigger Conditions and Automation Rules**\n\nTrigger Conditions:\n\n* Cart abandonment within 1-4 hours\n* Cart value consideration (e.g., above/below a certain amount)\n\nAutomation Rules:\n\n* Send Email 1 1 hour after cart abandonment\n* Send Email 2 24 hours after cart abandonment\n* Send SMS 1 1 hour after cart abandonment\n* Send SMS 2 3 days after cart abandonment\n\n**Personalization and Dynamic Content Strategy**\n\nPersonalization:\n\n* Product-specific messaging\n* Cart value consideration\n\nDynamic Content:\n\n* Product images and descriptions\n* Call-to-action buttons\n\n**Success Metrics and Optimization Plan**\n\nSuccess Metrics:\n\n* Recovery rate\n* Revenue per email\n* Conversion rate\n\nOptimization Plan:\n\n* Monitor and analyze campaign performance regularly\n* Adjust messaging, timing, and segmentation based on performance data\n* Continuously test and improve the campaign to achieve maximum results\n\n**Deliverables**\n\n1. Campaign Overview and Objectives\n2. Target Audience Profile and Segmentation\n3. Messaging Strategy and Key Themes\n4. Email Sequence Plan (subjects, purposes, timing)\n5. SMS Sequence Plan (purposes, timing)\n6. Trigger Conditions and Automation Rules\n7. Personalization and Dynamic Content Strategy\n8. Success Metrics and Optimization Plan"
+  },
+  "emails": [
+    {
+      "sequence_number": 1,
+      "purpose": "Gentle reminder",
+      "focus": "Complete your purchase",
+      "subject": "Here's a high-converting email for Euron.One's cart abandonment campaign:",
+      "preview_text": "Here's a high-converting email for Euron",
+      "body": "Here's a high-converting email for Euron.One's cart abandonment campaign:\n\nSubject Line: Complete Your Order: 15% Off Your First Purchase\n\nPreview Text: Don't miss out! Complete your order within the next 24 hours and receive 15% off your first purchase\n\nEmail Body:\n\nHi {{first_name}},\n\nWe noticed you left some amazing products in your cart! We want to make it easy for you to complete your purchase and start enjoying the benefits of your new items.\n\nAt Euron.One, we pride ourselves on providing top-notch products and services that make your life easier. Our products are designed to simplify your daily routine, and we're confident you'll love them.\n\nTo make things even sweeter, we're offering you 15% off your first purchase if you complete your order within the next 24 hours. This is a one-time offer, so don't miss out!\n\nHere are the items still waiting for you in your cart:\n\n [Product 1]\n\n [Product 2]\n\n [Product 3]\n\nTo complete your order, simply click the link below:\n\nComplete Your Order Now\n\nThis link will take you directly to your cart, where you can review your items and check out easily. Don't forget to use your 15% off code at checkout!\n\nIf you have any questions or need assistance, our customer service team is always here to help.\n\nBest regards,\n\nThe Euron.One Team\n\nCall-to-Action: Complete Your Order Now\n\nThis email aims to create a sense of convenience and ease by emphasizing the benefits of completing the purchase. The 15% off offer adds an element of urgency, encouraging the customer to take action within the next 24 hours. The email also includes social proof by highlighting the quality of Euron.One's products and services, and provides a clear and easy way to complete the order.",
+      "cta": {
+        "text": "Shop Now",
+        "url": "[DYNAMIC_URL]"
+      },
+      "personalization": [
+        "{{first_name}}"
+      ],
+      "timing": {
+        "sequence_position": 1,
+        "send_after_hours": 1,
+        "best_send_time": "10:00 AM",
+        "optimal_days": [
+          "Tuesday",
+          "Wednesday",
+          "Thursday"
+        ]
+      },
+      "full_content": "Here's a high-converting email for Euron.One's cart abandonment campaign:\n\n**Subject Line:** Complete Your Order: 15% Off Your First Purchase\n\n**Preview Text:** Don't miss out! Complete your order within the next 24 hours and receive 15% off your first purchase\n\n**Email Body:**\n\nHi {{first_name}},\n\nWe noticed you left some amazing products in your cart! We want to make it easy for you to complete your purchase and start enjoying the benefits of your new items.\n\nAt Euron.One, we pride ourselves on providing top-notch products and services that make your life easier. Our products are designed to simplify your daily routine, and we're confident you'll love them.\n\nTo make things even sweeter, we're offering you 15% off your first purchase if you complete your order within the next 24 hours. This is a one-time offer, so don't miss out!\n\nHere are the items still waiting for you in your cart:\n\n* [Product 1]\n* [Product 2]\n* [Product 3]\n\nTo complete your order, simply click the link below:\n\n**Complete Your Order Now**\n\nThis link will take you directly to your cart, where you can review your items and check out easily. Don't forget to use your 15% off code at checkout!\n\nIf you have any questions or need assistance, our customer service team is always here to help.\n\nBest regards,\nThe Euron.One Team\n\n**Call-to-Action:** Complete Your Order Now\n\nThis email aims to create a sense of convenience and ease by emphasizing the benefits of completing the purchase. The 15% off offer adds an element of urgency, encouraging the customer to take action within the next 24 hours. The email also includes social proof by highlighting the quality of Euron.One's products and services, and provides a clear and easy way to complete the order."
+    }
+  ],
+  "sms": [
+    {
+      "sequence_number": 1,
+      "purpose": "Urgent reminder",
+      "focus": "Quick action needed",
+      "message": "Here's a high-converting SMS message for Euron.One's cart abandonment campaign:",
+      "character_count": 79,
+      "link_included": false,
+      "extract_sms": "Here's a high-converting SMS message for Euron.One's cart abandonment campaign:",
+      "personalization": [],
+      "timing": {
+        "sequence_position": 1,
+        "send_after_hours": 2,
+        "best_send_time": "2:00 PM",
+        "optimal_days": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday"
+        ],
+        "time_zone_consideration": true
+      },
+      "compliance": {
+        "opt_out_included": false,
+        "brand_identified": true,
+        "no_spam_words": true,
+        "character_compliant": true,
+        "time_restriction_noted": true
+      },
+      "full_response": "Here's a high-converting SMS message for Euron.One's cart abandonment campaign:\n\n\"Hi {{name}}, don't miss out! Your items are waiting. Complete your order now: [easy completion link] Text STOP to opt out\"\n\nCharacter Count: 137\n\nThis SMS message aims to create a sense of urgency by highlighting that the customer's items are waiting, while also providing a clear and easy-to-use completion link. The message is concise, professional, and includes an opt-out option. The hook is the personalized greeting, which addresses the customer by their name. The use of the exclamation mark adds a touch of friendliness and approachability, while the clear call-to-action encourages immediate action."
+    },
+    {
+      "sequence_number": 2,
+      "purpose": "Special offer",
+      "focus": "Exclusive mobile discount",
+      "message": "Here's a high-converting SMS message for Euron.One's cart abandonment campaign:",
+      "character_count": 79,
+      "link_included": false,
+      "extract_sms": "Here's a high-converting SMS message for Euron.One's cart abandonment campaign:",
+      "personalization": [],
+      "timing": {
+        "sequence_position": 2,
+        "send_after_hours": 48,
+        "best_send_time": "2:00 PM",
+        "optimal_days": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday"
+        ],
+        "time_zone_consideration": true
+      },
+      "compliance": {
+        "opt_out_included": false,
+        "brand_identified": true,
+        "no_spam_words": true,
+        "character_compliant": true,
+        "time_restriction_noted": true
+      },
+      "full_response": "Here's a high-converting SMS message for Euron.One's cart abandonment campaign:\n\n\"Hey {{name}}, don't miss out! Limited stock remaining. Complete your order now and receive 10% off. Text 'COMPLETED' to redeem. Text STOP to opt out. \ud83d\udecd\ufe0f\"\n\nCharacter Count: 139\n\nThis SMS message aims to create a sense of urgency by mentioning limited stock, while also offering an exclusive 10% discount to complete the order. The use of \"Hey {{name}}\" adds a friendly touch, while the clear CTA (\"Text 'COMPLETED' to redeem\") encourages the customer to take immediate action. The inclusion of \"Text STOP to opt out\" ensures compliance with SMS marketing regulations."
+    }
+  ],
+  "visuals": [
+    {
+      "type": "email_header",
+      "email_sequence": 1,
+      "purpose": "Gentle reminder",
+      "description": "Professional header for Euron.One - Complete your purchase theme",
+      "dimensions": "600x200",
+      "file_name": "email_header_1.png",
+      "error": "Euron API error 403: {\"error\":{\"message\":\"Daily token limit of 102000 reached. Please try again tomorrow.\",\"type\":\"forbidden\",\"code\":\"permission_denied\"},\"success\":false,\"statusCode\":403}"
+    },
+    {
+      "type": "product_showcase",
+      "products": [
+        "Products and Services"
+      ],
+      "description": "Professional product showcase featuring Euron.One products",
+      "dimensions": "800x600",
+      "file_name": "product_showcase.png",
+      "error": "Euron API error 403: {\"error\":{\"message\":\"Daily token limit of 102000 reached. Please try again tomorrow.\",\"type\":\"forbidden\",\"code\":\"permission_denied\"},\"success\":false,\"statusCode\":403}"
+    },
+    {
+      "type": "social_proof",
+      "subtype": "testimonial",
+      "description": "Customer testimonial graphic with 5-star rating and quote",
+      "dimensions": "600x400",
+      "file_name": "customer_testimonial.png",
+      "error": "Euron API error 403: {\"error\":{\"message\":\"Daily token limit of 102000 reached. Please try again tomorrow.\",\"type\":\"forbidden\",\"code\":\"permission_denied\"},\"success\":false,\"statusCode\":403}"
+    },
+    {
+      "type": "trust_badges",
+      "description": "Trust badges strip with security and guarantee icons",
+      "dimensions": "800x100",
+      "file_name": "trust_badges.png",
+      "error": "Euron API error 403: {\"error\":{\"message\":\"Daily token limit of 102000 reached. Please try again tomorrow.\",\"type\":\"forbidden\",\"code\":\"permission_denied\"},\"success\":false,\"statusCode\":403}"
+    },
+    {
+      "type": "cta_button",
+      "button_text": "Shop Now",
+      "description": "Professional CTA button with text 'Shop Now'",
+      "dimensions": "300x60",
+      "file_name": "cta_button_1.png",
+      "error": "Euron API error 403: {\"error\":{\"message\":\"Daily token limit of 102000 reached. Please try again tomorrow.\",\"type\":\"forbidden\",\"code\":\"permission_denied\"},\"success\":false,\"statusCode\":403}"
+    }
+  ],
+  "campaign_flow": {
+    "flow_id": "cart_abandonment_flow_20250812_094504",
+    "flow_name": "Brand - Cart Abandonment Campaign",
+    "flow_type": "Cart Abandonment",
+    "created_at": "2025-08-12T09:45:04.381297",
+    "status": "draft",
+    "triggers": {
+      "entry_trigger": {
+        "type": "cart_abandonment",
+        "conditions": [
+          "Cart value > $0",
+          "User has email address",
+          "User hasn't completed purchase",
+          "User isn't in other active campaigns"
+        ],
+        "description": "User adds items to cart but doesn't complete purchase within 1 hour",
+        "delay": "0 minutes"
+      },
+      "exit_triggers": [
+        {
+          "type": "goal_achieved",
+          "condition": "user_converts",
+          "action": "remove_from_flow"
+        },
+        {
+          "type": "user_action",
+          "condition": "unsubscribe",
+          "action": "remove_from_flow"
+        },
+        {
+          "type": "time_limit",
+          "condition": "30_days_elapsed",
+          "action": "complete_flow"
+        }
+      ],
+      "exclusions": [
+        "User has opted out of marketing emails",
+        "User has hard bounced email address",
+        "User is in suppression list",
+        "User has completed target action in last 24 hours"
+      ]
+    },
+    "sequence": [
+      {
+        "step_id": "step_1",
+        "step_type": "email",
+        "step_name": "Email 1",
+        "delay": {
+          "type": "time_delay",
+          "value": 1,
+          "unit": "hours"
+        },
+        "content": {
+          "subject": "Here's a high-converting email for Euron.One's cart abandonment campaign:",
+          "preview_text": "Here's a high-converting email for Euron",
+          "body_html": "\n    <!DOCTYPE html>\n    <html>\n    <head>\n        <meta charset=\"utf-8\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n        <title>Here's a high-converting email for Euron.One's cart abandonment campaign:</title>\n    </head>\n    <body style=\"margin: 0; padding: 20px; font-family: Arial, sans-serif;\">\n        <div style=\"max-width: 600px; margin: 0 auto;\">\n            <!-- Header -->\n            <div style=\"text-align: center; margin-bottom: 20px;\">\n                <img src=\"{brand_logo}\" alt=\"{brand_name}\" style=\"max-height: 80px;\">\n            </div>\n            \n            <!-- Body Content -->\n            <div style=\"line-height: 1.6; color: #333;\">\n                <p>Here's a high-converting email for Euron.One's cart abandonment campaign:</p><p>Subject Line: Complete Your Order: 15% Off Your First Purchase</p><p>Preview Text: Don't miss out! Complete your order within the next 24 hours and receive 15% off your first purchase</p><p>Email Body:</p><p>Hi {{first_name}},</p><p>We noticed you left some amazing products in your cart! We want to make it easy for you to complete your purchase and start enjoying the benefits of your new items.</p><p>At Euron.One, we pride ourselves on providing top-notch products and services that make your life easier. Our products are designed to simplify your daily routine, and we're confident you'll love them.</p><p>To make things even sweeter, we're offering you 15% off your first purchase if you complete your order within the next 24 hours. This is a one-time offer, so don't miss out!</p><p>Here are the items still waiting for you in your cart:</p><p> [Product 1]</p><p> [Product 2]</p><p> [Product 3]</p><p>To complete your order, simply click the link below:</p><p>Complete Your Order Now</p><p>This link will take you directly to your cart, where you can review your items and check out easily. Don't forget to use your 15% off code at checkout!</p><p>If you have any questions or need assistance, our customer service team is always here to help.</p><p>Best regards,</p><p>The Euron.One Team</p><p>Call-to-Action: Complete Your Order Now</p><p>This email aims to create a sense of convenience and ease by emphasizing the benefits of completing the purchase. The 15% off offer adds an element of urgency, encouraging the customer to take action within the next 24 hours. The email also includes social proof by highlighting the quality of Euron.One's products and services, and provides a clear and easy way to complete the order.</p>\n            </div>\n            \n            <!-- CTA -->\n            \n    <div style=\"text-align: center; margin: 30px 0;\">\n        <a href=\"[DYNAMIC_URL]\" \n           style=\"display: inline-block; padding: 15px 30px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;\">\n            Shop Now\n        </a>\n    </div>\n    \n            \n            <!-- Footer -->\n            <div style=\"margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; text-align: center; font-size: 12px; color: #666;\">\n                <p>{unsubscribe_link}</p>\n                <p>{company_address}</p>\n            </div>\n        </div>\n    </body>\n    </html>\n    ",
+          "body_text": "Here's a high-converting email for Euron.One's cart abandonment campaign:\n\nSubject Line: Complete Your Order: 15% Off Your First Purchase\n\nPreview Text: Don't miss out! Complete your order within the next 24 hours and receive 15% off your first purchase\n\nEmail Body:\n\nHi {{first_name}},\n\nWe noticed you left some amazing products in your cart! We want to make it easy for you to complete your purchase and start enjoying the benefits of your new items.\n\nAt Euron.One, we pride ourselves on providing top-notch products and services that make your life easier. Our products are designed to simplify your daily routine, and we're confident you'll love them.\n\nTo make things even sweeter, we're offering you 15% off your first purchase if you complete your order within the next 24 hours. This is a one-time offer, so don't miss out!\n\nHere are the items still waiting for you in your cart:\n\n [Product 1]\n\n [Product 2]\n\n [Product 3]\n\nTo complete your order, simply click the link below:\n\nComplete Your Order Now\n\nThis link will take you directly to your cart, where you can review your items and check out easily. Don't forget to use your 15% off code at checkout!\n\nIf you have any questions or need assistance, our customer service team is always here to help.\n\nBest regards,\n\nThe Euron.One Team\n\nCall-to-Action: Complete Your Order Now\n\nThis email aims to create a sense of convenience and ease by emphasizing the benefits of completing the purchase. The 15% off offer adds an element of urgency, encouraging the customer to take action within the next 24 hours. The email also includes social proof by highlighting the quality of Euron.One's products and services, and provides a clear and easy way to complete the order.",
+          "sender_name": "{{brand_name}}",
+          "sender_email": "{{brand_email}}",
+          "reply_to": "{{support_email}}",
+          "personalization": [
+            "{{first_name}}"
+          ],
+          "cta": {
+            "text": "Shop Now",
+            "url": "[DYNAMIC_URL]"
+          },
+          "tracking": {
+            "opens": true,
+            "clicks": true,
+            "conversions": true
+          }
+        },
+        "conditions": [
+          {
+            "type": "not_completed_goal",
+            "description": "User hasn't converted yet"
+          },
+          {
+            "type": "subscribed",
+            "description": "User is subscribed to marketing messages"
+          }
+        ],
+        "next_step": "step_2"
+      },
+      {
+        "step_id": "step_2",
+        "step_type": "sms",
+        "step_name": "Sms 1",
+        "delay": {
+          "type": "time_delay",
+          "value": 2,
+          "unit": "hours"
+        },
+        "content": {
+          "message": "Here's a high-converting SMS message for Euron.One's cart abandonment campaign:",
+          "sender_id": "{{brand_shortcode}}",
+          "personalization": [],
+          "compliance": {
+            "opt_out_included": false,
+            "brand_identified": true,
+            "no_spam_words": true,
+            "character_compliant": true,
+            "time_restriction_noted": true
+          },
+          "tracking": {
+            "delivery": true,
+            "responses": true,
+            "conversions": true
+          }
+        },
+        "conditions": [
+          {
+            "type": "not_completed_goal",
+            "description": "User hasn't converted yet"
+          },
+          {
+            "type": "subscribed",
+            "description": "User is subscribed to marketing messages"
+          },
+          {
+            "type": "sms_consent",
+            "description": "User has consented to SMS marketing"
+          }
+        ],
+        "next_step": "step_3"
+      },
+      {
+        "step_id": "step_3",
+        "step_type": "sms",
+        "step_name": "Sms 2",
+        "delay": {
+          "type": "time_delay",
+          "value": 48,
+          "unit": "hours"
+        },
+        "content": {
+          "message": "Here's a high-converting SMS message for Euron.One's cart abandonment campaign:",
+          "sender_id": "{{brand_shortcode}}",
+          "personalization": [],
+          "compliance": {
+            "opt_out_included": false,
+            "brand_identified": true,
+            "no_spam_words": true,
+            "character_compliant": true,
+            "time_restriction_noted": true
+          },
+          "tracking": {
+            "delivery": true,
+            "responses": true,
+            "conversions": true
+          }
+        },
+        "conditions": [
+          {
+            "type": "not_completed_goal",
+            "description": "User hasn't converted yet"
+          },
+          {
+            "type": "subscribed",
+            "description": "User is subscribed to marketing messages"
+          },
+          {
+            "type": "sms_consent",
+            "description": "User has consented to SMS marketing"
+          }
+        ],
+        "next_step": "end_flow"
+      }
+    ],
+    "segmentation": {
+      "target_segments": [
+        {
+          "name": "Primary Target",
+          "description": "General customers",
+          "conditions": [
+            "email_address_exists",
+            "has_cart_items",
+            "cart_value_greater_than_0",
+            "not_purchased_in_last_hour"
+          ]
+        }
+      ],
+      "exclusion_segments": [
+        {
+          "name": "Recent Converters",
+          "description": "Users who converted in last 7 days",
+          "conditions": [
+            "converted_in_last_7_days"
+          ]
+        },
+        {
+          "name": "Suppressed Users",
+          "description": "Users on suppression list",
+          "conditions": [
+            "in_suppression_list"
+          ]
+        }
+      ],
+      "dynamic_segmentation": true
+    },
+    "personalization": {
+      "enabled": true,
+      "tags_used": [
+        "{{first_name}}"
+      ],
+      "fallback_values": {
+        "{{first_name}}": "there",
+        "{{name}}": "valued customer",
+        "{{product_name}}": "our product",
+        "{{brand_name}}": "our brand"
+      },
+      "dynamic_content": {
+        "product_recommendations": true,
+        "location_based": true,
+        "behavioral_triggers": true
+      },
+      "testing": {
+        "a_b_testing": true,
+        "personalization_lift_tracking": true
+      }
+    },
+    "timing": {
+      "send_time_optimization": true,
+      "timezone_delivery": true,
+      "frequency_capping": {
+        "max_emails_per_day": 2,
+        "max_sms_per_week": 3,
+        "respect_quiet_hours": true
+      },
+      "optimal_send_times": {
+        "email": {
+          "weekdays": "10:00 AM, 2:00 PM",
+          "weekends": "11:00 AM"
+        },
+        "sms": {
+          "weekdays": "2:00 PM, 6:00 PM",
+          "weekends": "12:00 PM"
+        }
+      },
+      "delay_rules": [
+        {
+          "message_type": "email",
+          "sequence_number": 1,
+          "delay_hours": 1,
+          "description": "Send email 1 after 1 hours"
+        },
+        {
+          "message_type": "sms",
+          "sequence_number": 1,
+          "delay_hours": 2,
+          "description": "Send SMS 1 after 2 hours"
+        },
+        {
+          "message_type": "sms",
+          "sequence_number": 2,
+          "delay_hours": 48,
+          "description": "Send SMS 2 after 48 hours"
+        }
+      ]
+    },
+    "assets": {
+      "visual_assets": {
+        "email_headers": [
+          {
+            "type": "email_header",
+            "email_sequence": 1,
+            "purpose": "Gentle reminder",
+            "description": "Professional header for Euron.One - Complete your purchase theme",
+            "dimensions": "600x200",
+            "file_name": "email_header_1.png",
+            "error": "Euron API error 403: {\"error\":{\"message\":\"Daily token limit of 102000 reached. Please try again tomorrow.\",\"type\":\"forbidden\",\"code\":\"permission_denied\"},\"success\":false,\"statusCode\":403}"
+          }
+        ],
+        "product_images": [
+          {
+            "type": "product_showcase",
+            "products": [
+              "Products and Services"
+            ],
+            "description": "Professional product showcase featuring Euron.One products",
+            "dimensions": "800x600",
+            "file_name": "product_showcase.png",
+            "error": "Euron API error 403: {\"error\":{\"message\":\"Daily token limit of 102000 reached. Please try again tomorrow.\",\"type\":\"forbidden\",\"code\":\"permission_denied\"},\"success\":false,\"statusCode\":403}"
+          }
+        ],
+        "social_proof": [
+          {
+            "type": "social_proof",
+            "subtype": "testimonial",
+            "description": "Customer testimonial graphic with 5-star rating and quote",
+            "dimensions": "600x400",
+            "file_name": "customer_testimonial.png",
+            "error": "Euron API error 403: {\"error\":{\"message\":\"Daily token limit of 102000 reached. Please try again tomorrow.\",\"type\":\"forbidden\",\"code\":\"permission_denied\"},\"success\":false,\"statusCode\":403}"
+          }
+        ],
+        "cta_buttons": [
+          {
+            "type": "cta_button",
+            "button_text": "Shop Now",
+            "description": "Professional CTA button with text 'Shop Now'",
+            "dimensions": "300x60",
+            "file_name": "cta_button_1.png",
+            "error": "Euron API error 403: {\"error\":{\"message\":\"Daily token limit of 102000 reached. Please try again tomorrow.\",\"type\":\"forbidden\",\"code\":\"permission_denied\"},\"success\":false,\"statusCode\":403}"
+          }
+        ],
+        "trust_badges": [
+          {
+            "type": "trust_badges",
+            "description": "Trust badges strip with security and guarantee icons",
+            "dimensions": "800x100",
+            "file_name": "trust_badges.png",
+            "error": "Euron API error 403: {\"error\":{\"message\":\"Daily token limit of 102000 reached. Please try again tomorrow.\",\"type\":\"forbidden\",\"code\":\"permission_denied\"},\"success\":false,\"statusCode\":403}"
+          }
+        ]
+      },
+      "content_assets": {
+        "email_templates": 1,
+        "sms_templates": 2,
+        "personalization_tags": [
+          "{{first_name}}"
+        ]
+      },
+      "export_ready": true,
+      "asset_count": 8
+    },
+    "analytics": {
+      "tracking_enabled": true,
+      "kpis": [
+        "open_rate",
+        "click_through_rate",
+        "conversion_rate",
+        "revenue_per_email",
+        "unsubscribe_rate"
+      ],
+      "goals": [
+        {
+          "name": "Primary Conversion",
+          "description": "Complete purchase",
+          "value": "purchase_completed"
+        },
+        {
+          "name": "Engagement",
+          "description": "Click email CTA",
+          "value": "email_click"
+        }
+      ],
+      "attribution": {
+        "window": "7_days",
+        "model": "last_click"
+      },
+      "reporting": {
+        "frequency": "daily",
+        "stakeholders": [
+          "marketing_team",
+          "management"
+        ]
+      }
+    },
+    "export_formats": {
+      "klaviyo": {
+        "flow_name": "Brand - Cart Abandonment Campaign",
+        "trigger_filters": [
+          {
+            "type": "event",
+            "event": "Started Checkout",
+            "constraint": {
+              "and": [
+                {
+                  "field": "$value",
+                  "operator": "greater than",
+                  "value": 0
+                }
+              ]
+            }
+          }
+        ],
+        "flow_filters": [
+          {
+            "type": "property",
+            "property": "email",
+            "operator": "is set"
+          },
+          {
+            "type": "property",
+            "property": "can_receive_email_marketing",
+            "operator": "equals",
+            "value": true
+          }
+        ],
+        "messages": [
+          {
+            "type": "email",
+            "name": "Email 1",
+            "delay": 1,
+            "delay_unit": "hours",
+            "subject": "Here's a high-converting email for Euron.One's cart abandonment campaign:",
+            "preview_text": "Here's a high-converting email for Euron",
+            "body": "\n    <!DOCTYPE html>\n    <html>\n    <head>\n        <meta charset=\"utf-8\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n        <title>Here's a high-converting email for Euron.One's cart abandonment campaign:</title>\n    </head>\n    <body style=\"margin: 0; padding: 20px; font-family: Arial, sans-serif;\">\n        <div style=\"max-width: 600px; margin: 0 auto;\">\n            <!-- Header -->\n            <div style=\"text-align: center; margin-bottom: 20px;\">\n                <img src=\"{brand_logo}\" alt=\"{brand_name}\" style=\"max-height: 80px;\">\n            </div>\n            \n            <!-- Body Content -->\n            <div style=\"line-height: 1.6; color: #333;\">\n                <p>Here's a high-converting email for Euron.One's cart abandonment campaign:</p><p>Subject Line: Complete Your Order: 15% Off Your First Purchase</p><p>Preview Text: Don't miss out! Complete your order within the next 24 hours and receive 15% off your first purchase</p><p>Email Body:</p><p>Hi {{first_name}},</p><p>We noticed you left some amazing products in your cart! We want to make it easy for you to complete your purchase and start enjoying the benefits of your new items.</p><p>At Euron.One, we pride ourselves on providing top-notch products and services that make your life easier. Our products are designed to simplify your daily routine, and we're confident you'll love them.</p><p>To make things even sweeter, we're offering you 15% off your first purchase if you complete your order within the next 24 hours. This is a one-time offer, so don't miss out!</p><p>Here are the items still waiting for you in your cart:</p><p> [Product 1]</p><p> [Product 2]</p><p> [Product 3]</p><p>To complete your order, simply click the link below:</p><p>Complete Your Order Now</p><p>This link will take you directly to your cart, where you can review your items and check out easily. Don't forget to use your 15% off code at checkout!</p><p>If you have any questions or need assistance, our customer service team is always here to help.</p><p>Best regards,</p><p>The Euron.One Team</p><p>Call-to-Action: Complete Your Order Now</p><p>This email aims to create a sense of convenience and ease by emphasizing the benefits of completing the purchase. The 15% off offer adds an element of urgency, encouraging the customer to take action within the next 24 hours. The email also includes social proof by highlighting the quality of Euron.One's products and services, and provides a clear and easy way to complete the order.</p>\n            </div>\n            \n            <!-- CTA -->\n            \n    <div style=\"text-align: center; margin: 30px 0;\">\n        <a href=\"[DYNAMIC_URL]\" \n           style=\"display: inline-block; padding: 15px 30px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;\">\n            Shop Now\n        </a>\n    </div>\n    \n            \n            <!-- Footer -->\n            <div style=\"margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; text-align: center; font-size: 12px; color: #666;\">\n                <p>{unsubscribe_link}</p>\n                <p>{company_address}</p>\n            </div>\n        </div>\n    </body>\n    </html>\n    ",
+            "from_email": "{{ organization.from_email }}",
+            "from_name": "{{ organization.from_name }}"
+          },
+          {
+            "type": "sms",
+            "name": "SMS 1",
+            "delay": 2,
+            "delay_unit": "hours",
+            "body": "Here's a high-converting SMS message for Euron.One's cart abandonment campaign:",
+            "media_url": null
+          },
+          {
+            "type": "sms",
+            "name": "SMS 2",
+            "delay": 48,
+            "delay_unit": "hours",
+            "body": "Here's a high-converting SMS message for Euron.One's cart abandonment campaign:",
+            "media_url": null
+          }
+        ],
+        "settings": {
+          "smart_sending": true,
+          "quiet_hours": {
+            "start": "22:00",
+            "end": "08:00"
+          }
+        }
+      },
+      "mailchimp": {
+        "automation_name": "Brand - Cart Abandonment Campaign",
+        "trigger_type": "audience",
+        "emails": [
+          {
+            "delay": 1,
+            "delay_unit": "hours",
+            "subject": "Here's a high-converting email for Euron.One's cart abandonment campaign:",
+            "content": "\n    <!DOCTYPE html>\n    <html>\n    <head>\n        <meta charset=\"utf-8\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n        <title>Here's a high-converting email for Euron.One's cart abandonment campaign:</title>\n    </head>\n    <body style=\"margin: 0; padding: 20px; font-family: Arial, sans-serif;\">\n        <div style=\"max-width: 600px; margin: 0 auto;\">\n            <!-- Header -->\n            <div style=\"text-align: center; margin-bottom: 20px;\">\n                <img src=\"{brand_logo}\" alt=\"{brand_name}\" style=\"max-height: 80px;\">\n            </div>\n            \n            <!-- Body Content -->\n            <div style=\"line-height: 1.6; color: #333;\">\n                <p>Here's a high-converting email for Euron.One's cart abandonment campaign:</p><p>Subject Line: Complete Your Order: 15% Off Your First Purchase</p><p>Preview Text: Don't miss out! Complete your order within the next 24 hours and receive 15% off your first purchase</p><p>Email Body:</p><p>Hi {{first_name}},</p><p>We noticed you left some amazing products in your cart! We want to make it easy for you to complete your purchase and start enjoying the benefits of your new items.</p><p>At Euron.One, we pride ourselves on providing top-notch products and services that make your life easier. Our products are designed to simplify your daily routine, and we're confident you'll love them.</p><p>To make things even sweeter, we're offering you 15% off your first purchase if you complete your order within the next 24 hours. This is a one-time offer, so don't miss out!</p><p>Here are the items still waiting for you in your cart:</p><p> [Product 1]</p><p> [Product 2]</p><p> [Product 3]</p><p>To complete your order, simply click the link below:</p><p>Complete Your Order Now</p><p>This link will take you directly to your cart, where you can review your items and check out easily. Don't forget to use your 15% off code at checkout!</p><p>If you have any questions or need assistance, our customer service team is always here to help.</p><p>Best regards,</p><p>The Euron.One Team</p><p>Call-to-Action: Complete Your Order Now</p><p>This email aims to create a sense of convenience and ease by emphasizing the benefits of completing the purchase. The 15% off offer adds an element of urgency, encouraging the customer to take action within the next 24 hours. The email also includes social proof by highlighting the quality of Euron.One's products and services, and provides a clear and easy way to complete the order.</p>\n            </div>\n            \n            <!-- CTA -->\n            \n    <div style=\"text-align: center; margin: 30px 0;\">\n        <a href=\"[DYNAMIC_URL]\" \n           style=\"display: inline-block; padding: 15px 30px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;\">\n            Shop Now\n        </a>\n    </div>\n    \n            \n            <!-- Footer -->\n            <div style=\"margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; text-align: center; font-size: 12px; color: #666;\">\n                <p>{unsubscribe_link}</p>\n                <p>{company_address}</p>\n            </div>\n        </div>\n    </body>\n    </html>\n    "
+          }
+        ]
+      },
+      "hubspot": {
+        "workflow_name": "Brand - Cart Abandonment Campaign",
+        "enrollment_triggers": [
+          {
+            "type": "contact_property_change",
+            "property": "lifecycle_stage"
+          }
+        ],
+        "actions": [
+          {
+            "type": "send_email",
+            "delay": 1,
+            "email_subject": "Here's a high-converting email for Euron.One's cart abandonment campaign:",
+            "email_body": "Here's a high-converting email for Euron.One's cart abandonment campaign:\n\nSubject Line: Complete Your Order: 15% Off Your First Purchase\n\nPreview Text: Don't miss out! Complete your order within the next 24 hours and receive 15% off your first purchase\n\nEmail Body:\n\nHi {{first_name}},\n\nWe noticed you left some amazing products in your cart! We want to make it easy for you to complete your purchase and start enjoying the benefits of your new items.\n\nAt Euron.One, we pride ourselves on providing top-notch products and services that make your life easier. Our products are designed to simplify your daily routine, and we're confident you'll love them.\n\nTo make things even sweeter, we're offering you 15% off your first purchase if you complete your order within the next 24 hours. This is a one-time offer, so don't miss out!\n\nHere are the items still waiting for you in your cart:\n\n [Product 1]\n\n [Product 2]\n\n [Product 3]\n\nTo complete your order, simply click the link below:\n\nComplete Your Order Now\n\nThis link will take you directly to your cart, where you can review your items and check out easily. Don't forget to use your 15% off code at checkout!\n\nIf you have any questions or need assistance, our customer service team is always here to help.\n\nBest regards,\n\nThe Euron.One Team\n\nCall-to-Action: Complete Your Order Now\n\nThis email aims to create a sense of convenience and ease by emphasizing the benefits of completing the purchase. The 15% off offer adds an element of urgency, encouraging the customer to take action within the next 24 hours. The email also includes social proof by highlighting the quality of Euron.One's products and services, and provides a clear and easy way to complete the order."
+          }
+        ]
+      },
+      "generic_csv": "Type,Sequence,Subject/Message,Body,Delay Hours,Purpose\r\nEmail,1,Here's a high-converting email for Euron.One's cart abandonment campaign:,\"Here's a high-converting email for Euron.One's cart abandonment campaign:\n\nSubject Line: Complete Yo...\",1,Gentle reminder\r\nSMS,1,Here's a high-converting SMS message for Euron.One's cart abandonment campaign:,,2,Urgent reminder\r\nSMS,2,Here's a high-converting SMS message for Euron.One's cart abandonment campaign:,,48,Special offer\r\n",
+      "json": "{\n  \"campaign_plan\": {\n    \"campaign_type\": \"Cart Abandonment\",\n    \"objective\": \"To recover abandoned purchases and increase conversion rates among General customers.\",\n    \"strategy\": \"**Messaging Strategy and Key Themes**  Core Value Proposition: High-quality products and services.\",\n    \"timeline\": [\n      {\n        \"sequence\": 1,\n        \"type\": \"email\",\n        \"trigger_hours\": 1,\n        \"trigger_description\": \"Send email 1 after 1 hours\"\n      },\n      {\n        \"sequence\": 1,\n        \"type\": \"sms\",\n        \"trigger_hours\": 48,\n        \"trigger_description\": \"Send SMS 1 after 48 hours\"\n      }\n    ],\n    \"email_sequence\": [\n      {\n        \"email_number\": 1,\n        \"purpose\": \"Gentle reminder\",\n        \"focus\": \"Complete your purchase\",\n        \"key_message\": \"Email 1: Complete your purchase\"\n      }\n    ],\n    \"sms_sequence\": [\n      {\n        \"sms_number\": 1,\n        \"purpose\": \"Urgent reminder\",\n        \"focus\": \"Quick action needed\",\n        \"key_message\": \"SMS 1: Quick action needed\"\n      },\n      {\n        \"sms_number\": 2,\n        \"purpose\": \"Special offer\",\n        \"focus\": \"Exclusive mobile discount\",\n        \"key_message\": \"SMS 2: Exclusive mobile discount\"\n      }\n    ],\n    \"triggers\": {\n      \"start_trigger\": \"User adds items to cart but doesn't complete purchase within 1 hour\",\n      \"conditions\": [\n        \"Cart value > $0\",\n        \"User has email address\",\n        \"User hasn't completed purchase\",\n        \"User isn't in other active campaigns\"\n      ],\n      \"exclusions\": [\n        \"User has opted out of marketing emails\",\n        \"User has hard bounced email address\",\n        \"User is in suppression list\",\n        \"User has completed target action in last 24 hours\"\n      ]\n    },\n    \"success_metrics\": [\n      \"Open rate > 25%\",\n      \"Click-through rate > 3%\",\n      \"Conversion rate > 2%\",\n      \"Revenue per email > $1\",\n      \"Unsubscribe rate < 0.5%\"\n    ],\n    \"personalization\": {\n      \"name_personalization\": true,\n      \"product_recommendations\": true,\n      \"behavioral_triggers\": true,\n      \"dynamic_content\": [\n        \"Product images based on cart items\",\n        \"Personalized subject lines\",\n        \"Location-based offers\",\n        \"Purchase history references\"\n      ],\n      \"segmentation\": [\n        \"First-time visitors\",\n        \"Returning customers\",\n        \"High-value customers\",\n        \"Inactive users\"\n      ]\n    },\n    \"full_plan\": \"**Campaign Overview and Objectives**\\n\\nCampaign Name: Cart Abandonment Recovery\\n\\nObjective: To recover abandoned purchases and increase conversion rates among General customers.\\n\\nPrimary Goal: To send targeted and personalized messages to customers who have abandoned their carts, encouraging them to complete their purchases and increase revenue.\\n\\n**Target Audience Profile and Segmentation**\\n\\nTarget Audience: General customers who have added products to their cart but have not completed their purchase within 1-4 hours.\\n\\nSegmentation: Based on purchase history, browsing behavior, and cart abandonment frequency.\\n\\n**Messaging Strategy and Key Themes**\\n\\nCore Value Proposition: High-quality products and services.\\n\\nKey Messages:\\n\\n1. Convenience: We care about your time and want to make sure you have the best shopping experience.\\n2. Urgency: Don't miss out on the products you need - complete your purchase today!\\n3. Value Reinforcement: Our products are high-quality and worth every penny.\\n\\nTone: Professional\\n\\n**Email Sequence Plan**\\n\\nEmail 1: Gentle Reminder\\n\\n* Subject: Don't forget about your cart!\\n* Purpose: To remind the customer about their abandoned cart and encourage them to complete their purchase.\\n* Timing: 1 hour after cart abandonment\\n\\nEmail 2: Value Reinforcement\\n\\n* Subject: You've got this! Complete your purchase now!\\n* Purpose: To reinforce the value of the products and encourage the customer to complete their purchase.\\n* Timing: 24 hours after cart abandonment\\n\\n**SMS Sequence Plan**\\n\\nSMS 1: Urgency Creation\\n\\n* Purpose: To create a sense of urgency and encourage the customer to complete their purchase.\\n* Timing: 1 hour after cart abandonment\\n\\nSMS 2: Final Incentive\\n\\n* Purpose: To provide a final incentive for the customer to complete their purchase.\\n* Timing: 3 days after cart abandonment\\n\\n**Trigger Conditions and Automation Rules**\\n\\nTrigger Conditions:\\n\\n* Cart abandonment within 1-4 hours\\n* Cart value consideration (e.g., above/below a certain amount)\\n\\nAutomation Rules:\\n\\n* Send Email 1 1 hour after cart abandonment\\n* Send Email 2 24 hours after cart abandonment\\n* Send SMS 1 1 hour after cart abandonment\\n* Send SMS 2 3 days after cart abandonment\\n\\n**Personalization and Dynamic Content Strategy**\\n\\nPersonalization:\\n\\n* Product-specific messaging\\n* Cart value consideration\\n\\nDynamic Content:\\n\\n* Product images and descriptions\\n* Call-to-action buttons\\n\\n**Success Metrics and Optimization Plan**\\n\\nSuccess Metrics:\\n\\n* Recovery rate\\n* Revenue per email\\n* Conversion rate\\n\\nOptimization Plan:\\n\\n* Monitor and analyze campaign performance regularly\\n* Adjust messaging, timing, and segmentation based on performance data\\n* Continuously test and improve the campaign to achieve maximum results\\n\\n**Deliverables**\\n\\n1. Campaign Overview and Objectives\\n2. Target Audience Profile and Segmentation\\n3. Messaging Strategy and Key Themes\\n4. Email Sequence Plan (subjects, purposes, timing)\\n5. SMS Sequence Plan (purposes, timing)\\n6. Trigger Conditions and Automation Rules\\n7. Personalization and Dynamic Content Strategy\\n8. Success Metrics and Optimization Plan\"\n  },\n  \"emails\": [\n    {\n      \"sequence_number\": 1,\n      \"purpose\": \"Gentle reminder\",\n      \"focus\": \"Complete your purchase\",\n      \"subject\": \"Here's a high-converting email for Euron.One's cart abandonment campaign:\",\n      \"preview_text\": \"Here's a high-converting email for Euron\",\n      \"body\": \"Here's a high-converting email for Euron.One's cart abandonment campaign:\\n\\nSubject Line: Complete Your Order: 15% Off Your First Purchase\\n\\nPreview Text: Don't miss out! Complete your order within the next 24 hours and receive 15% off your first purchase\\n\\nEmail Body:\\n\\nHi {{first_name}},\\n\\nWe noticed you left some amazing products in your cart! We want to make it easy for you to complete your purchase and start enjoying the benefits of your new items.\\n\\nAt Euron.One, we pride ourselves on providing top-notch products and services that make your life easier. Our products are designed to simplify your daily routine, and we're confident you'll love them.\\n\\nTo make things even sweeter, we're offering you 15% off your first purchase if you complete your order within the next 24 hours. This is a one-time offer, so don't miss out!\\n\\nHere are the items still waiting for you in your cart:\\n\\n [Product 1]\\n\\n [Product 2]\\n\\n [Product 3]\\n\\nTo complete your order, simply click the link below:\\n\\nComplete Your Order Now\\n\\nThis link will take you directly to your cart, where you can review your items and check out easily. Don't forget to use your 15% off code at checkout!\\n\\nIf you have any questions or need assistance, our customer service team is always here to help.\\n\\nBest regards,\\n\\nThe Euron.One Team\\n\\nCall-to-Action: Complete Your Order Now\\n\\nThis email aims to create a sense of convenience and ease by emphasizing the benefits of completing the purchase. The 15% off offer adds an element of urgency, encouraging the customer to take action within the next 24 hours. The email also includes social proof by highlighting the quality of Euron.One's products and services, and provides a clear and easy way to complete the order.\",\n      \"cta\": {\n        \"text\": \"Shop Now\",\n        \"url\": \"[DYNAMIC_URL]\"\n      },\n      \"personalization\": [\n        \"{{first_name}}\"\n      ],\n      \"timing\": {\n        \"sequence_position\": 1,\n        \"send_after_hours\": 1,\n        \"best_send_time\": \"10:00 AM\",\n        \"optimal_days\": [\n          \"Tuesday\",\n          \"Wednesday\",\n          \"Thursday\"\n        ]\n      },\n      \"full_content\": \"Here's a high-converting email for Euron.One's cart abandonment campaign:\\n\\n**Subject Line:** Complete Your Order: 15% Off Your First Purchase\\n\\n**Preview Text:** Don't miss out! Complete your order within the next 24 hours and receive 15% off your first purchase\\n\\n**Email Body:**\\n\\nHi {{first_name}},\\n\\nWe noticed you left some amazing products in your cart! We want to make it easy for you to complete your purchase and start enjoying the benefits of your new items.\\n\\nAt Euron.One, we pride ourselves on providing top-notch products and services that make your life easier. Our products are designed to simplify your daily routine, and we're confident you'll love them.\\n\\nTo make things even sweeter, we're offering you 15% off your first purchase if you complete your order within the next 24 hours. This is a one-time offer, so don't miss out!\\n\\nHere are the items still waiting for you in your cart:\\n\\n* [Product 1]\\n* [Product 2]\\n* [Product 3]\\n\\nTo complete your order, simply click the link below:\\n\\n**Complete Your Order Now**\\n\\nThis link will take you directly to your cart, where you can review your items and check out easily. Don't forget to use your 15% off code at checkout!\\n\\nIf you have any questions or need assistance, our customer service team is always here to help.\\n\\nBest regards,\\nThe Euron.One Team\\n\\n**Call-to-Action:** Complete Your Order Now\\n\\nThis email aims to create a sense of convenience and ease by emphasizing the benefits of completing the purchase. The 15% off offer adds an element of urgency, encouraging the customer to take action within the next 24 hours. The email also includes social proof by highlighting the quality of Euron.One's products and services, and provides a clear and easy way to complete the order.\"\n    }\n  ],\n  \"sms\": [\n    {\n      \"sequence_number\": 1,\n      \"purpose\": \"Urgent reminder\",\n      \"focus\": \"Quick action needed\",\n      \"message\": \"Here's a high-converting SMS message for Euron.One's cart abandonment campaign:\",\n      \"character_count\": 79,\n      \"link_included\": false,\n      \"extract_sms\": \"Here's a high-converting SMS message for Euron.One's cart abandonment campaign:\",\n      \"personalization\": [],\n      \"timing\": {\n        \"sequence_position\": 1,\n        \"send_after_hours\": 2,\n        \"best_send_time\": \"2:00 PM\",\n        \"optimal_days\": [\n          \"Monday\",\n          \"Tuesday\",\n          \"Wednesday\",\n          \"Thursday\"\n        ],\n        \"time_zone_consideration\": true\n      },\n      \"compliance\": {\n        \"opt_out_included\": false,\n        \"brand_identified\": true,\n        \"no_spam_words\": true,\n        \"character_compliant\": true,\n        \"time_restriction_noted\": true\n      },\n      \"full_response\": \"Here's a high-converting SMS message for Euron.One's cart abandonment campaign:\\n\\n\\\"Hi {{name}}, don't miss out! Your items are waiting. Complete your order now: [easy completion link] Text STOP to opt out\\\"\\n\\nCharacter Count: 137\\n\\nThis SMS message aims to create a sense of urgency by highlighting that the customer's items are waiting, while also providing a clear and easy-to-use completion link. The message is concise, professional, and includes an opt-out option. The hook is the personalized greeting, which addresses the customer by their name. The use of the exclamation mark adds a touch of friendliness and approachability, while the clear call-to-action encourages immediate action.\"\n    },\n    {\n      \"sequence_number\": 2,\n      \"purpose\": \"Special offer\",\n      \"focus\": \"Exclusive mobile discount\",\n      \"message\": \"Here's a high-converting SMS message for Euron.One's cart abandonment campaign:\",\n      \"character_count\": 79,\n      \"link_included\": false,\n      \"extract_sms\": \"Here's a high-converting SMS message for Euron.One's cart abandonment campaign:\",\n      \"personalization\": [],\n      \"timing\": {\n        \"sequence_position\": 2,\n        \"send_after_hours\": 48,\n        \"best_send_time\": \"2:00 PM\",\n        \"optimal_days\": [\n          \"Monday\",\n          \"Tuesday\",\n          \"Wednesday\",\n          \"Thursday\"\n        ],\n        \"time_zone_consideration\": true\n      },\n      \"compliance\": {\n        \"opt_out_included\": false,\n        \"brand_identified\": true,\n        \"no_spam_words\": true,\n        \"character_compliant\": true,\n        \"time_restriction_noted\": true\n      },\n      \"full_response\": \"Here's a high-converting SMS message for Euron.One's cart abandonment campaign:\\n\\n\\\"Hey {{name}}, don't miss out! Limited stock remaining. Complete your order now and receive 10% off. Text 'COMPLETED' to redeem. Text STOP to opt out. \\ud83d\\udecd\\ufe0f\\\"\\n\\nCharacter Count: 139\\n\\nThis SMS message aims to create a sense of urgency by mentioning limited stock, while also offering an exclusive 10% discount to complete the order. The use of \\\"Hey {{name}}\\\" adds a friendly touch, while the clear CTA (\\\"Text 'COMPLETED' to redeem\\\") encourages the customer to take immediate action. The inclusion of \\\"Text STOP to opt out\\\" ensures compliance with SMS marketing regulations.\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"type\": \"email_header\",\n      \"email_sequence\": 1,\n      \"purpose\": \"Gentle reminder\",\n      \"description\": \"Professional header for Euron.One - Complete your purchase theme\",\n      \"dimensions\": \"600x200\",\n      \"file_name\": \"email_header_1.png\",\n      \"error\": \"Euron API error 403: {\\\"error\\\":{\\\"message\\\":\\\"Daily token limit of 102000 reached. Please try again tomorrow.\\\",\\\"type\\\":\\\"forbidden\\\",\\\"code\\\":\\\"permission_denied\\\"},\\\"success\\\":false,\\\"statusCode\\\":403}\"\n    },\n    {\n      \"type\": \"product_showcase\",\n      \"products\": [\n        \"Products and Services\"\n      ],\n      \"description\": \"Professional product showcase featuring Euron.One products\",\n      \"dimensions\": \"800x600\",\n      \"file_name\": \"product_showcase.png\",\n      \"error\": \"Euron API error 403: {\\\"error\\\":{\\\"message\\\":\\\"Daily token limit of 102000 reached. Please try again tomorrow.\\\",\\\"type\\\":\\\"forbidden\\\",\\\"code\\\":\\\"permission_denied\\\"},\\\"success\\\":false,\\\"statusCode\\\":403}\"\n    },\n    {\n      \"type\": \"social_proof\",\n      \"subtype\": \"testimonial\",\n      \"description\": \"Customer testimonial graphic with 5-star rating and quote\",\n      \"dimensions\": \"600x400\",\n      \"file_name\": \"customer_testimonial.png\",\n      \"error\": \"Euron API error 403: {\\\"error\\\":{\\\"message\\\":\\\"Daily token limit of 102000 reached. Please try again tomorrow.\\\",\\\"type\\\":\\\"forbidden\\\",\\\"code\\\":\\\"permission_denied\\\"},\\\"success\\\":false,\\\"statusCode\\\":403}\"\n    },\n    {\n      \"type\": \"trust_badges\",\n      \"description\": \"Trust badges strip with security and guarantee icons\",\n      \"dimensions\": \"800x100\",\n      \"file_name\": \"trust_badges.png\",\n      \"error\": \"Euron API error 403: {\\\"error\\\":{\\\"message\\\":\\\"Daily token limit of 102000 reached. Please try again tomorrow.\\\",\\\"type\\\":\\\"forbidden\\\",\\\"code\\\":\\\"permission_denied\\\"},\\\"success\\\":false,\\\"statusCode\\\":403}\"\n    },\n    {\n      \"type\": \"cta_button\",\n      \"button_text\": \"Shop Now\",\n      \"description\": \"Professional CTA button with text 'Shop Now'\",\n      \"dimensions\": \"300x60\",\n      \"file_name\": \"cta_button_1.png\",\n      \"error\": \"Euron API error 403: {\\\"error\\\":{\\\"message\\\":\\\"Daily token limit of 102000 reached. Please try again tomorrow.\\\",\\\"type\\\":\\\"forbidden\\\",\\\"code\\\":\\\"permission_denied\\\"},\\\"success\\\":false,\\\"statusCode\\\":403}\"\n    }\n  ],\n  \"export_timestamp\": \"2025-08-12T09:45:04.381297\",\n  \"version\": \"1.0\"\n}"
+    }
+  },
+  "errors": []
+}

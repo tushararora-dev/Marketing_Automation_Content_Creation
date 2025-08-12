@@ -1,5 +1,88 @@
 from typing import Dict, Any
 
+# def get_email_generation_prompt(
+#     brand_analysis: Dict[str, Any],
+#     campaign_plan: Dict[str, Any],
+#     email_plan: Dict[str, Any],
+#     tone: str,
+#     sequence_number: int
+# ) -> str:
+#     """
+#     Generate comprehensive prompt for email content creation
+    
+#     Args:
+#         brand_analysis: Brand analysis data
+#         campaign_plan: Campaign strategy and plan
+#         email_plan: Specific email plan details
+#         tone: Email tone/voice
+#         sequence_number: Position in email sequence
+    
+#     Returns:
+#         Detailed prompt for email generation
+#     """
+    
+#     brand_name = brand_analysis.get("brand_name", "Brand")
+#     brand_description = brand_analysis.get("description", "")
+#     products = brand_analysis.get("products", [])
+#     target_audience = campaign_plan.get("target_audience", "customers")
+#     campaign_type = campaign_plan.get("campaign_type", "Marketing")
+#     email_purpose = email_plan.get("purpose", "Engagement")
+#     email_focus = email_plan.get("focus", "General")
+    
+#     prompt = f"""
+#     Create a high-converting email for {brand_name}'s {campaign_type.lower()} campaign.
+    
+#     BRAND CONTEXT:
+#     - Brand: {brand_name}
+#     - Description: {brand_description}
+#     - Products/Services: {', '.join(products[:3])}
+#     - Target Audience: {target_audience}
+#     - Brand Tone: {tone}
+    
+#     EMAIL DETAILS:
+#     - Email #{sequence_number} in sequence
+#     - Purpose: {email_purpose}
+#     - Focus: {email_focus}
+#     - Campaign Type: {campaign_type}
+    
+#     REQUIREMENTS:
+#     1. Subject Line: Create a compelling subject line (40-50 characters)
+#     2. Preview Text: Write preview text that complements the subject (90-120 characters)
+#     3. Email Body: Write engaging body content (150-300 words)
+#     4. Call-to-Action: Include a clear, compelling CTA
+#     5. Personalization: Use {{{{first_name}}}} and other relevant tokens
+    
+#     EMAIL STRUCTURE:
+#     - Hook: Start with attention-grabbing opening
+#     - Value: Clearly communicate value proposition
+#     - Urgency: Create appropriate urgency for action
+#     - Social Proof: Include trust elements if relevant
+
+    
+#     TONE GUIDELINES:
+#     - {tone}: Maintain {tone.lower()} tone throughout
+#     - Conversational: Write as if speaking to a friend
+#     - Benefit-focused: Emphasize customer benefits
+#     - Scannable: Use short paragraphs and bullet points
+    
+#     CAMPAIGN-SPECIFIC NOTES:
+#     {get_campaign_specific_guidance(campaign_type, sequence_number)}
+    
+#     OUTPUT FORMAT:
+#     Subject: [Subject line here]
+#     Preview: [Preview text here]
+    
+#     Dear {{{{first_name}}}},
+    
+#     [Email body content here]
+    
+    
+#     Best regards,
+#     The {brand_name} Team
+#     """
+#         # Create an email that drives {email_focus.lower()} and encourages action.
+#     return prompt
+
 def get_email_generation_prompt(
     brand_analysis: Dict[str, Any],
     campaign_plan: Dict[str, Any],
@@ -8,19 +91,9 @@ def get_email_generation_prompt(
     sequence_number: int
 ) -> str:
     """
-    Generate comprehensive prompt for email content creation
-    
-    Args:
-        brand_analysis: Brand analysis data
-        campaign_plan: Campaign strategy and plan
-        email_plan: Specific email plan details
-        tone: Email tone/voice
-        sequence_number: Position in email sequence
-    
-    Returns:
-        Detailed prompt for email generation
+    Generate a prompt for fully-written, ready-to-send email content
     """
-    
+
     brand_name = brand_analysis.get("brand_name", "Brand")
     brand_description = brand_analysis.get("description", "")
     products = brand_analysis.get("products", [])
@@ -28,63 +101,124 @@ def get_email_generation_prompt(
     campaign_type = campaign_plan.get("campaign_type", "Marketing")
     email_purpose = email_plan.get("purpose", "Engagement")
     email_focus = email_plan.get("focus", "General")
-    
+
     prompt = f"""
-    Create a high-converting email for {brand_name}'s {campaign_type.lower()} campaign.
-    
+    Write a fully-written, conversion-focused marketing email for {brand_name}'s {campaign_type.lower()} campaign.
+
     BRAND CONTEXT:
     - Brand: {brand_name}
     - Description: {brand_description}
     - Products/Services: {', '.join(products[:3])}
     - Target Audience: {target_audience}
     - Brand Tone: {tone}
-    
+
     EMAIL DETAILS:
     - Email #{sequence_number} in sequence
     - Purpose: {email_purpose}
     - Focus: {email_focus}
     - Campaign Type: {campaign_type}
-    
+
     REQUIREMENTS:
-    1. Subject Line: Create a compelling subject line (40-50 characters)
-    2. Preview Text: Write preview text that complements the subject (90-120 characters)
-    3. Email Body: Write engaging body content (150-300 words)
-    4. Call-to-Action: Include a clear, compelling CTA
-    5. Personalization: Use {{{{first_name}}}} and other relevant tokens
-    
-    EMAIL STRUCTURE:
-    - Hook: Start with attention-grabbing opening
-    - Value: Clearly communicate value proposition
-    - Urgency: Create appropriate urgency for action
-    - Social Proof: Include trust elements if relevant
-    - CTA: Clear, action-oriented call-to-action
-    
-    TONE GUIDELINES:
-    - {tone}: Maintain {tone.lower()} tone throughout
-    - Conversational: Write as if speaking to a friend
-    - Benefit-focused: Emphasize customer benefits
-    - Scannable: Use short paragraphs and bullet points
-    
+    - Subject Line: 40–50 characters, compelling
+    - Preview Text: 90–120 characters, complements subject
+    - Email Body: 150–300 words, engaging, professional tone
+    - Call-to-Action: Embedded naturally in the body (no labels)
+    - Personalization: Use {{{{first_name}}}} where relevant
+    - Structure: Hook → Value Proposition → Urgency → Social Proof → CTA
+    - Style: Short paragraphs, benefit-focused, scannable, conversational
+
     CAMPAIGN-SPECIFIC NOTES:
     {get_campaign_specific_guidance(campaign_type, sequence_number)}
-    
-    OUTPUT FORMAT:
-    Subject: [Subject line here]
-    Preview: [Preview text here]
-    
-    Dear {{{{first_name}}}},
-    
-    [Email body content here]
-    
-    [Call-to-action]
-    
-    Best regards,
-    The {brand_name} Team
-    
-    Create an email that drives {email_focus.lower()} and encourages action.
+
+    IMPORTANT:
+    - Do NOT include any labels like "Call-to-Action:" or "Here’s your email".
+    - Output ONLY the final email in this exact order:
+      1. Subject line
+      2. Preview text
+      3. Full email body starting with "Hi {{{{first_name}}}}," and ending with "Best regards, The {brand_name} Team"
+    - No extra commentary or placeholders.
     """
-    
+
     return prompt
+
+
+
+
+# def get_sms_generation_prompt(
+#     brand_analysis: Dict[str, Any],
+#     campaign_plan: Dict[str, Any],
+#     sms_plan: Dict[str, Any],
+#     tone: str,
+#     sequence_number: int
+# ) -> str:
+#     """
+#     Generate prompt for SMS content creation
+    
+#     Args:
+#         brand_analysis: Brand analysis data
+#         campaign_plan: Campaign strategy and plan
+#         sms_plan: Specific SMS plan details
+#         tone: SMS tone/voice
+#         sequence_number: Position in SMS sequence
+    
+#     Returns:
+#         Detailed prompt for SMS generation
+#     """
+    
+#     brand_name = brand_analysis.get("brand_name", "Brand")
+#     products = brand_analysis.get("products", [])
+#     target_audience = campaign_plan.get("target_audience", "customers")
+#     campaign_type = campaign_plan.get("campaign_type", "Marketing")
+#     sms_purpose = sms_plan.get("purpose", "Engagement")
+#     sms_focus = sms_plan.get("focus", "General")
+    
+#     prompt = f"""
+#     Create a high-converting SMS message for {brand_name}'s {campaign_type.lower()} campaign.
+    
+#     BRAND CONTEXT:
+#     - Brand: {brand_name}
+#     - Products/Services: {', '.join(products[:2])}
+#     - Target Audience: {target_audience}
+#     - Brand Tone: {tone}
+    
+#     SMS DETAILS:
+#     - SMS #{sequence_number} in sequence
+#     - Purpose: {sms_purpose}
+#     - Focus: {sms_focus}
+#     - Campaign Type: {campaign_type}
+    
+#     SMS REQUIREMENTS:
+#     - Character Limit: 140 characters (including spaces)
+#     - Include opt-out: "Text STOP to opt out"
+#     - Personalization: Use {{{{name}}}} if appropriate
+#     - Clear CTA: Include actionable next step
+#     - Urgency: Create appropriate urgency
+    
+#     TONE GUIDELINES:
+#     - {tone}: Maintain {tone.lower()} tone
+#     - Concise: Every word must count
+#     - Direct: Get straight to the point
+#     - Friendly: Sound human and approachable
+    
+#     SMS BEST PRACTICES:
+#     - Start with hook or benefit
+#     - Use emojis sparingly (1-2 max)
+#     - Include clear value proposition
+#     - End with strong call-to-action
+#     - Ensure mobile-friendly language
+    
+#     CAMPAIGN-SPECIFIC GUIDANCE:
+#     {get_sms_campaign_guidance(campaign_type, sequence_number)}
+    
+#     OUTPUT FORMAT:
+#     SMS: [Your SMS message here - max 140 characters]
+    
+
+#     """
+#     #     Character Count: [Actual count]
+    
+#     # Create an SMS that drives immediate {sms_focus.lower()} and action.
+#     return prompt
 
 def get_sms_generation_prompt(
     brand_analysis: Dict[str, Any],
@@ -115,52 +249,45 @@ def get_sms_generation_prompt(
     sms_focus = sms_plan.get("focus", "General")
     
     prompt = f"""
-    Create a high-converting SMS message for {brand_name}'s {campaign_type.lower()} campaign.
-    
-    BRAND CONTEXT:
-    - Brand: {brand_name}
-    - Products/Services: {', '.join(products[:2])}
-    - Target Audience: {target_audience}
-    - Brand Tone: {tone}
-    
-    SMS DETAILS:
-    - SMS #{sequence_number} in sequence
-    - Purpose: {sms_purpose}
-    - Focus: {sms_focus}
-    - Campaign Type: {campaign_type}
-    
-    SMS REQUIREMENTS:
-    - Character Limit: 140 characters (including spaces)
-    - Include opt-out: "Text STOP to opt out"
-    - Personalization: Use {{{{name}}}} if appropriate
-    - Clear CTA: Include actionable next step
-    - Urgency: Create appropriate urgency
-    
-    TONE GUIDELINES:
-    - {tone}: Maintain {tone.lower()} tone
-    - Concise: Every word must count
-    - Direct: Get straight to the point
-    - Friendly: Sound human and approachable
-    
-    SMS BEST PRACTICES:
-    - Start with hook or benefit
-    - Use emojis sparingly (1-2 max)
-    - Include clear value proposition
-    - End with strong call-to-action
-    - Ensure mobile-friendly language
-    
-    CAMPAIGN-SPECIFIC GUIDANCE:
-    {get_sms_campaign_guidance(campaign_type, sequence_number)}
-    
-    OUTPUT FORMAT:
-    SMS: [Your SMS message here - max 140 characters]
-    
-    Character Count: [Actual count]
-    
-    Create an SMS that drives immediate {sms_focus.lower()} and action.
-    """
-    
+You are a professional copywriter creating a high-converting SMS message.
+
+Do NOT include any introductory lines like "Here is your SMS" or any explanation.
+
+Strictly output ONE SMS message only, starting with the prefix "SMS:" followed by the SMS content.
+
+The SMS must follow these rules:
+
+- Max 140 characters including spaces
+- Start with a personalized greeting using {{name}} placeholder
+- Include 1-2 emojis maximum
+- Provide a clear call-to-action with a link placeholder [CTA link]
+- Create a sense of urgency or exclusivity
+- Include the opt-out text exactly: "Text STOP to opt out."
+- Use a friendly, {tone.lower()} tone suitable for {target_audience}
+- Focus on {sms_focus.lower()} with a clear value proposition
+- Avoid any filler or extra text
+
+Context:
+Brand: {brand_name}
+Products/Services: {', '.join(products[:2])}
+Campaign Type: {campaign_type}
+SMS Sequence #: {sequence_number}
+Purpose: {sms_purpose}
+Focus: {sms_focus}
+
+CAMPAIGN-SPECIFIC GUIDANCE:
+{get_sms_campaign_guidance(campaign_type, sequence_number)}
+
+Example format:
+SMS: Hi {{name}}, 🚀 Your feedback is crucial. Share your thoughts now for exclusive access: [CTA link]. Text STOP to opt out.
+
+Now generate the SMS message.
+"""
     return prompt
+
+
+
+
 
 def get_campaign_specific_guidance(campaign_type: str, sequence_number: int) -> str:
     """Get campaign-specific guidance for email content"""

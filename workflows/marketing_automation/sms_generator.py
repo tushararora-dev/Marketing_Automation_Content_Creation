@@ -99,35 +99,51 @@ def parse_sms_response(sms_text: str, sms_plan: Dict[str, Any], sequence_number:
     
     return sms
 
-def extract_sms_message(sms_text: str) -> str:
-    """Extract the main SMS message from LLM response"""
+# def extract_sms_message(sms_text: str) -> str:
+#     """Extract the main SMS message from LLM response"""
     
-    lines = sms_text.split('\n')
+#     lines = sms_text.split('\n')
     
-    # Look for SMS message indicators
-    for line in lines:
-        line_clean = line.strip()
-        if line_clean.lower().startswith('sms:'):
-            return line_clean.split(':', 1)[1].strip()
-        elif line_clean.lower().startswith('message:'):
-            return line_clean.split(':', 1)[1].strip()
-        elif '**SMS:**' in line:
-            return line.split('**SMS:**')[1].split('**')[0].strip()
+#     # Look for SMS message indicators
+#     for line in lines:
+#         line_clean = line.strip()
+#         if line_clean.lower().startswith('sms:'):
+#             return line_clean.split(':', 1)[1].strip()
+#         elif line_clean.lower().startswith('message:'):
+#             return line_clean.split(':', 1)[1].strip()
+#         elif '**SMS:**' in line:
+#             return line.split('**SMS:**')[1].split('**')[0].strip()
     
-    # Find the longest line that looks like an SMS message
-    potential_messages = []
-    for line in lines:
-        line_clean = line.strip()
-        if line_clean and len(line_clean) > 20 and len(line_clean) < 160:
-            # Remove any markdown formatting
-            clean_line = line_clean.replace('**', '').replace('*', '')
-            potential_messages.append(clean_line)
+#     # Find the longest line that looks like an SMS message
+#     potential_messages = []
+#     for line in lines:
+#         line_clean = line.strip()
+#         if line_clean and len(line_clean) > 20 and len(line_clean) < 160:
+#             # Remove any markdown formatting
+#             clean_line = line_clean.replace('**', '').replace('*', '')
+#             potential_messages.append(clean_line)
     
-    if potential_messages:
-        return potential_messages[0]
+#     if potential_messages:
+#         return potential_messages[0]
     
-    # Default message if nothing found
-    return "Special offer just for you! Don't miss out. Text STOP to opt out."
+#     # Default message if nothing found
+#     return "Special offer just for you! Don't miss out. Text STOP to opt out."
+
+def extract_sms_message(text: str) -> str:
+    """
+    Extract SMS message content following the 'SMS:' prefix.
+    Returns the message without the 'SMS:' part.
+    """
+    for line in text.split('\n'):
+        line = line.strip()
+        if line.lower().startswith('sms:'):
+            return line.split(':', 1)[1].strip()
+    return ""  # Return empty if not found
+
+
+
+
+
 
 def optimize_sms_length(message: str) -> str:
     """Optimize SMS message length for best delivery"""

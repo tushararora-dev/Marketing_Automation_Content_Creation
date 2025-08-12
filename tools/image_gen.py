@@ -2,7 +2,7 @@ import requests
 import json
 import time
 from typing import Dict, Any, Optional
-from config.settings import load_config, get_huggingface_headers
+from config.settings import load_config, get_huggingface_headers, get_euron_headers
 from io import BytesIO
 from PIL import Image
 
@@ -12,107 +12,216 @@ import replicate
 
 
 # Initialize Replicate client once (you can move this outside the function if you want)
-replicate_client = replicate.Client(api_token=config["replicate_api_key"])
+# replicate_client = replicate.Client(api_token=config["replicate_api_key"])
 
 
 
 
 #----- Used for Hugging face---
+# def generate_image(
+#     prompt: str,
+#     style: str = "professional, high quality",
+#     dimensions: str = "1072x1072"
+# ) -> Dict[str, Any]:
+#     """
+#     Generate image using HuggingFace Inference API
+    
+#     Args:
+#         prompt: Text prompt for image generation
+#         style: Style guidance for the image
+#         dimensions: Image dimensions (width x height)
+    
+#     Returns:
+#         Dictionary with image URL and metadata
+#     """
+    
+#     # Enhance prompt with style and quality modifiers
+#     enhanced_prompt = f"{prompt}, {style}, high resolution, detailed"
+    
+#     # Parse dimensions
+#     # width, height = parse_dimensions(dimensions)
+#     width = 1072
+#     height = 1072
+    
+#     # Prepare API request
+#     api_url = f"{config['huggingface_api_url']}/{config['huggingface_image_model']}"
+#     headers = get_huggingface_headers(config["huggingface_api_key"])
+    
+#     payload = {
+#         "inputs": enhanced_prompt,
+#         "parameters": {
+#             "width": width,
+#             "height": height,
+#             "num_inference_steps": config.get("num_inference_steps", 20),
+#             "guidance_scale": 7.5,
+#             "negative_prompt": "blurry, low quality, distorted, ugly, bad anatomy"
+#         }
+#     }
+    
+#     # Make API request with retries
+#     for attempt in range(config["max_retries"]):
+#         try:
+#             response = requests.post(
+#                 api_url,
+#                 headers=headers,
+#                 json=payload,
+#                 timeout=60
+#             )
+            
+#             if response.status_code == 200:
+#                 # HuggingFace returns image data directly
+#                 image_data = response.content
+#                 image = Image.open(BytesIO(image_data))
+#                 # Save image temporarily and return info
+#                 timestamp = str(int(time.time()))
+#                 filename = f"generated_image_{timestamp}.png"
+                
+#                 # In a real implementation, you'd save to cloud storage
+#                 # For now, return metadata
+#                 return {
+#                     "image_obj": image,
+#                     # "url": f"[GENERATED_IMAGE_{timestamp}]",
+#                     "filename": filename,
+#                     "prompt": enhanced_prompt,
+#                     "dimensions": f"{width}x{height}",
+#                     "size_bytes": len(image_data),
+#                     "format": "PNG",
+#                     "generated_at": timestamp,
+#                     "model": config['huggingface_image_model']
+#                 }
+                
+#             elif response.status_code == 503:  # Model loading
+#                 wait_time = 10 + (attempt * 5)
+#                 time.sleep(wait_time)
+#                 continue
+#             elif response.status_code == 429:  # Rate limit
+#                 wait_time = 2 ** attempt
+#                 time.sleep(wait_time)
+#                 continue
+#             else:
+#                 raise Exception(f"API request failed with status {response.status_code}: {response.text}")
+                
+#         except requests.exceptions.RequestException as e:
+#             if attempt == config["max_retries"] - 1:
+#                 raise Exception(f"Failed to generate image after {config['max_retries']} attempts: {str(e)}")
+            
+#             wait_time = 2 ** attempt
+#             time.sleep(wait_time)
+    
+#     raise Exception("Failed to generate image")
+
+#----- Euron api
+
+import time
+import requests
+from io import BytesIO
+from PIL import Image
+from typing import Dict, Any
+
 def generate_image(
     prompt: str,
-    style: str = "professional, high quality",
-    dimensions: str = "1072x1072"
+    style: str = "vivid",
+    dimensions: str = None,
+    n_images: int = 1
 ) -> Dict[str, Any]:
     """
-    Generate image using HuggingFace Inference API
-    
+    Generate image using Euron API with Flux model and return detailed info.
+
     Args:
         prompt: Text prompt for image generation
-        style: Style guidance for the image
-        dimensions: Image dimensions (width x height)
-    
+        style: Style for image generation (e.g. 'vivid')
+        dimensions: Image dimensions as 'WxH' string, default from config
+        n_images: Number of images to generate (default 1)
+
     Returns:
-        Dictionary with image URL and metadata
+        Dict with keys:
+        - image_obj: PIL Image object (first image)
+        - filename: generated filename string
+        - prompt: full prompt string
+        - dimensions: WxH string
+        - size_bytes: size of image bytes
+        - format: image format (PNG)
+        - generated_at: timestamp int
+        - model: model id string
+        - image_urls: list of generated image URLs (all)
     """
-    
-    # Enhance prompt with style and quality modifiers
-    enhanced_prompt = f"{prompt}, {style}, high resolution, detailed"
-    
-    # Parse dimensions
-    # width, height = parse_dimensions(dimensions)
-    width = 1072
-    height = 1072
-    
-    # Prepare API request
-    api_url = f"{config['huggingface_api_url']}/{config['huggingface_image_model']}"
-    headers = get_huggingface_headers(config["huggingface_api_key"])
-    
+
+    config = load_config()
+
+    if dimensions is None:
+        dimensions = f"{config['image_width']}x{config['image_height']}"
+
+    api_url = config["euron_image_gen_url"]
+    headers = get_euron_headers(config["euron_api_key"])
+
     payload = {
-        "inputs": enhanced_prompt,
-        "parameters": {
-            "width": width,
-            "height": height,
-            "num_inference_steps": config.get("num_inference_steps", 20),
-            "guidance_scale": 7.5,
-            "negative_prompt": "blurry, low quality, distorted, ugly, bad anatomy"
-        }
+        "prompt": prompt,
+        "model": config["euron_flux_model"],
+        "n": n_images,
+        "size": dimensions,
+        "quality": config.get("image_quality", "standard"),
+        "response_format": config.get("image_response_format", "url"),
+        "style": style
     }
-    
-    # Make API request with retries
-    for attempt in range(config["max_retries"]):
+
+    max_retries = config.get("max_retries", 3)
+
+    for attempt in range(max_retries):
         try:
-            response = requests.post(
-                api_url,
-                headers=headers,
-                json=payload,
-                timeout=60
-            )
-            
+            response = requests.post(api_url, json=payload, headers=headers, timeout=60)
+
             if response.status_code == 200:
-                # HuggingFace returns image data directly
-                image_data = response.content
+                data = response.json()
+                images_data = data.get("data", [])
+
+                if not images_data:
+                    raise Exception("No images returned in response")
+
+                # Grab first image URL
+                first_url = images_data[0].get("url")
+                if not first_url:
+                    raise Exception("First image URL missing")
+
+                # Download image bytes
+                image_response = requests.get(first_url)
+                image_response.raise_for_status()
+                image_data = image_response.content
+
+                # Open image object
                 image = Image.open(BytesIO(image_data))
-                # Save image temporarily and return info
+
                 timestamp = str(int(time.time()))
                 filename = f"generated_image_{timestamp}.png"
-                
-                # In a real implementation, you'd save to cloud storage
-                # For now, return metadata
+
                 return {
                     "image_obj": image,
-                    # "url": f"[GENERATED_IMAGE_{timestamp}]",
                     "filename": filename,
-                    "prompt": enhanced_prompt,
-                    "dimensions": f"{width}x{height}",
+                    "prompt": prompt,
+                    "dimensions": dimensions,
                     "size_bytes": len(image_data),
-                    "format": "PNG",
+                    "format": image.format or "PNG",
                     "generated_at": timestamp,
-                    "model": config['huggingface_image_model']
+                    "model": config["euron_flux_model"],
+                    "image_urls": [img.get("url") for img in images_data if img.get("url")]
                 }
-                
-            elif response.status_code == 503:  # Model loading
-                wait_time = 10 + (attempt * 5)
+
+            elif response.status_code == 503:
+                wait_time = 10 + attempt * 5
                 time.sleep(wait_time)
                 continue
-            elif response.status_code == 429:  # Rate limit
+            elif response.status_code == 429:
                 wait_time = 2 ** attempt
                 time.sleep(wait_time)
                 continue
             else:
-                raise Exception(f"API request failed with status {response.status_code}: {response.text}")
-                
+                raise Exception(f"Euron API error {response.status_code}: {response.text}")
+
         except requests.exceptions.RequestException as e:
-            if attempt == config["max_retries"] - 1:
-                raise Exception(f"Failed to generate image after {config['max_retries']} attempts: {str(e)}")
-            
-            wait_time = 2 ** attempt
-            time.sleep(wait_time)
-    
-    raise Exception("Failed to generate image")
+            if attempt == max_retries - 1:
+                raise Exception(f"Failed after {max_retries} attempts: {str(e)}")
+            time.sleep(2 ** attempt)
 
-
-
-
+    raise Exception("Failed to generate image after retries")
 
 
 

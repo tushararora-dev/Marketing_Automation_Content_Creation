@@ -105,33 +105,40 @@ def create_image_prompt(
     brand_tone = content_strategy.get("brand_tone", "professional")
     content_pillars = content_strategy.get("content_pillars", [])
     
+    # base_prompt = f"""
+    # Create a high-quality {image_type} image for marketing campaign.
+    
+    # Product/Service: {product_description}
+    # Target Audience: {target_audience}
+    # Brand Tone: {brand_tone}
+    # Content Focus: {', '.join(content_pillars[:3])}
+    # """
+
     base_prompt = f"""
-    Create a high-quality {image_type} image for marketing campaign.
+    Create a high-quality {image_type} image.
     
     Product/Service: {product_description}
-    Target Audience: {target_audience}
-    Brand Tone: {brand_tone}
-    Content Focus: {', '.join(content_pillars[:3])}
     """
+
     
-    if brand_colors:
-        base_prompt += f"\nBrand Colors: {brand_colors}"
+    # if brand_colors:
+    #     base_prompt += f"\nBrand Colors: {brand_colors}"
     
-    # Add type-specific requirements
-    type_requirements = get_type_specific_requirements(image_type, product_description)
-    base_prompt += f"\n\n{type_requirements}"
+    # # Add type-specific requirements
+    # type_requirements = get_type_specific_requirements(image_type, product_description)
+    # base_prompt += f"\n\n{type_requirements}"
     
-    # Add style and quality requirements
-    base_prompt += """
+    # # Add style and quality requirements
+    # base_prompt += """
     
-    Style Requirements:
-    - High resolution, professional quality
-    - Clean, modern design
-    - Strong visual hierarchy
-    - Platform-optimized composition
-    - Engaging and eye-catching
-    - Brand-consistent aesthetics
-    """
+    # Style Requirements:
+    # - High resolution, professional quality
+    # - Clean, modern design
+    # - Strong visual hierarchy
+    # - Platform-optimized composition
+    # - Engaging and eye-catching
+    # - Brand-consistent aesthetics
+    # """
     
     return base_prompt
 

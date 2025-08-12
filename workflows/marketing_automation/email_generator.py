@@ -143,9 +143,12 @@ def extract_preview_text(email_text: str) -> str:
 def extract_email_body(email_text: str) -> str:
     """Extract main email body content"""
     
+    # Remove first line if it starts with 'here'
     lines = email_text.split('\n')
+    if lines and lines[0].strip().lower().startswith("here"):
+        lines = lines[1:]
+    
     body_lines = []
-    in_body = False
     
     # Skip headers and find body content
     for line in lines:

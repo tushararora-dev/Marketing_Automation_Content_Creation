@@ -131,6 +131,10 @@ def get_social_caption_prompt(
     
     PLATFORM BEST PRACTICES:
     {get_platform_best_practices(platform)}
+
+    IMPORTANT:
+    Only output the captions exactly in the format below.
+    Do NOT include any explanations, summaries, or additional text.
     
     OUTPUT FORMAT:
     Caption 1:

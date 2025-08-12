@@ -218,10 +218,10 @@ def generate_script_title(script_type: str, script_text: str) -> str:
     """Generate a catchy title for the UGC script"""
     
     # Look for title in the script text
-    lines = script_text.split('\n')
-    for line in lines[:5]:
-        if 'title:' in line.lower():
-            return line.split(':', 1)[1].strip()
+    # lines = script_text.split('\n')
+    # for line in lines[:5]:
+    #     if 'title:' in line.lower():
+    #         return line.split(':', 1)[1].strip()
     
     # Generate based on script type
     titles = {
