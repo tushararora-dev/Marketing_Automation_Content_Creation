@@ -1,0 +1,461 @@
+{
+  "package_info": {
+    "created_at": "2025-08-13T12:03:17.262352",
+    "package_id": "content_pkg_20250813_120317",
+    "product_service": "We’re launching a new matcha drink",
+    "target_audience": "aged 20-25",
+    "brand_tone": "Professional",
+    "content_pillars": [
+      "innovation"
+    ],
+    "key_messages": [
+      "Perfect solution for your needs"
+    ],
+    "brand_colors": null,
+    "version": "1.0",
+    "status": "ready_for_use"
+  },
+  "content_summary": {
+    "total_assets": 9,
+    "ad_copy_variants": 0,
+    "social_platforms": 3,
+    "total_social_captions": 9,
+    "images_generated": 0,
+    "ugc_scripts": 0,
+    "email_assets": 0,
+    "content_types": [
+      "social_captions"
+    ],
+    "platforms_covered": [
+      "instagram",
+      "tiktok",
+      "linkedin",
+      "email",
+      "advertising"
+    ],
+    "ready_for_deployment": true
+  },
+  "organized_assets": {
+    "advertising": {
+      "ad_copy_variants": [],
+      "ad_images": [],
+      "platform_adaptations": {}
+    },
+    "social_media": {
+      "captions_by_platform": {
+        "instagram": [
+          "Introducing our latest obsession: a refreshing new matcha drink that's as vibrant as your morning routine! Packed with antioxidants and a boost of energy, this is the perfect way to power through the day. Try it now and let us know what you think! #matchalife #newlaunch #energyboost",
+          "Ever wondered what goes into crafting the perfect matcha drink? We're giving you a sneak peek behind the scenes of our new matcha production process! From sourcing the finest green tea leaves to blending the perfect balance of flavors, we're committed to bringing you the best. Share with us what you're drinking to stay energized and focused! #matchaproduction #greenliving #energylife",
+          "Who else is ready to level up their morning routine? Our new matcha drink is not only delicious, but also packed with nutrients and antioxidants to keep you going all day long! Share with us your favorite way to enjoy your matcha and tag a friend who needs a boost! #matchalove #morningmotivation #wellnesswednesday"
+        ],
+        "tiktok": [
+          "Wake up to a brighter you! Introducing our new matcha drink, packed with antioxidants and a boost of energy to kickstart your day! #matcha #breakfastgoals #morningmotivation",
+          "Who else is ready to level up their hydration game? Our new matcha drink is here to quench your thirst and fuel your day! Try it now and let me know what you think! #matcha #hydration #newarrivals",
+          "Matcha lovers, rejoice! We're shaking things up with our new limited-edition flavor - and we want you to be the first to try it! Share your experience with us and tag a friend who needs a matcha fix! #matcha #limitededition #matchalove"
+        ],
+        "linkedin": [
+          "Revolutionize your morning routine with our new matcha drink! Packed with antioxidants and a boost of energy, this game-changing beverage is about to become your new favorite. What's your go-to morning pick-me-up? Share with us in the comments! #InnovationInBeverages #MatchaLove #WellnessAtWork",
+          "Did you know matcha is more than just a trendy drink? It's a symbol of Japanese innovation and tradition. Our new matcha drink is crafted with the finest ingredients and a commitment to sustainability. Learn more about our production process and values in our latest blog post (link in bio)! #SustainabilityInAction #MatchaCulture #InnovationMatters",
+          "What's the perfect pairing for our new matcha drink? Let us know in the comments! We're giving away a free drink to one lucky winner who shares their favorite matcha-based snack or recipe. #MatchaPairingChallenge #InnovationInFood #GiveawayTime"
+        ]
+      },
+      "social_images": [],
+      "ugc_video_scripts": [],
+      "hashtag_collections": {
+        "instagram": [
+          "#greenliving",
+          "#newlaunch",
+          "#matchalove",
+          "#energylife",
+          "#wellnesswednesday",
+          "#energyboost",
+          "#matchaproduction",
+          "#morningmotivation",
+          "#matchalife"
+        ],
+        "tiktok": [
+          "#newarrivals",
+          "#matcha",
+          "#hydration",
+          "#matchalove",
+          "#breakfastgoals",
+          "#limitededition",
+          "#morningmotivation"
+        ],
+        "linkedin": [
+          "#SustainabilityInAction",
+          "#GiveawayTime",
+          "#MatchaCulture",
+          "#InnovationMatters",
+          "#MatchaLove",
+          "#MatchaPairingChallenge",
+          "#InnovationInBeverages",
+          "#InnovationInFood",
+          "#WellnessAtWork"
+        ]
+      }
+    },
+    "email_marketing": {
+      "email_creative_assets": [],
+      "email_images": [],
+      "email_copy_elements": {
+        "subject_line_ideas": [],
+        "headline_options": [],
+        "body_text_snippets": [],
+        "cta_buttons": []
+      }
+    },
+    "video_content": {
+      "ugc_scripts": [],
+      "video_thumbnails": [],
+      "editing_guidelines": [
+        "Maintain authentic, unpolished feel",
+        "Keep cuts snappy and engaging",
+        "Add captions for accessibility",
+        "Use trending audio where appropriate",
+        "Optimize for vertical viewing"
+      ]
+    }
+  },
+  "platform_kits": {
+    "instagram": {
+      "feed_posts": {
+        "captions": [
+          "Introducing our latest obsession: a refreshing new matcha drink that's as vibrant as your morning routine! Packed with antioxidants and a boost of energy, this is the perfect way to power through the day. Try it now and let us know what you think! #matchalife #newlaunch #energyboost",
+          "Ever wondered what goes into crafting the perfect matcha drink? We're giving you a sneak peek behind the scenes of our new matcha production process! From sourcing the finest green tea leaves to blending the perfect balance of flavors, we're committed to bringing you the best. Share with us what you're drinking to stay energized and focused! #matchaproduction #greenliving #energylife",
+          "Who else is ready to level up their morning routine? Our new matcha drink is not only delicious, but also packed with nutrients and antioxidants to keep you going all day long! Share with us your favorite way to enjoy your matcha and tag a friend who needs a boost! #matchalove #morningmotivation #wellnesswednesday"
+        ],
+        "images": [],
+        "hashtags": [
+          "#greenliving",
+          "#newlaunch",
+          "#matchalove",
+          "#energylife",
+          "#wellnesswednesday",
+          "#energyboost",
+          "#matchaproduction",
+          "#morningmotivation",
+          "#matchalife"
+        ]
+      },
+      "stories": {
+        "templates": "Coming soon - story templates",
+        "dimensions": "1080x1920"
+      },
+      "reels": {
+        "scripts": [],
+        "music_suggestions": []
+      }
+    },
+    "tiktok": {
+      "video_content": {
+        "scripts": [],
+        "captions": [
+          "Wake up to a brighter you! Introducing our new matcha drink, packed with antioxidants and a boost of energy to kickstart your day! #matcha #breakfastgoals #morningmotivation",
+          "Who else is ready to level up their hydration game? Our new matcha drink is here to quench your thirst and fuel your day! Try it now and let me know what you think! #matcha #hydration #newarrivals",
+          "Matcha lovers, rejoice! We're shaking things up with our new limited-edition flavor - and we want you to be the first to try it! Share your experience with us and tag a friend who needs a matcha fix! #matcha #limitededition #matchalove"
+        ],
+        "trending_elements": "Use trending audio and effects"
+      },
+      "posting_strategy": {
+        "best_times": "6-10 AM, 7-9 PM",
+        "frequency": "1-2 posts per day",
+        "engagement_tips": "Respond to comments quickly, use trending hashtags"
+      }
+    },
+    "facebook": {
+      "posts": {
+        "copy": [],
+        "images": [],
+        "video_content": []
+      },
+      "ads": {
+        "ad_copy": [],
+        "creative_specs": "1200x628 for feed, 1080x1080 for stories"
+      }
+    },
+    "linkedin": {
+      "posts": {
+        "captions": [
+          "Revolutionize your morning routine with our new matcha drink! Packed with antioxidants and a boost of energy, this game-changing beverage is about to become your new favorite. What's your go-to morning pick-me-up? Share with us in the comments! #InnovationInBeverages #MatchaLove #WellnessAtWork",
+          "Did you know matcha is more than just a trendy drink? It's a symbol of Japanese innovation and tradition. Our new matcha drink is crafted with the finest ingredients and a commitment to sustainability. Learn more about our production process and values in our latest blog post (link in bio)! #SustainabilityInAction #MatchaCulture #InnovationMatters",
+          "What's the perfect pairing for our new matcha drink? Let us know in the comments! We're giving away a free drink to one lucky winner who shares their favorite matcha-based snack or recipe. #MatchaPairingChallenge #InnovationInFood #GiveawayTime"
+        ],
+        "professional_tone": "Maintained throughout all content",
+        "content_focus": "Industry insights, thought leadership"
+      },
+      "articles": {
+        "topics": [],
+        "format": "Long-form, value-driven content"
+      }
+    }
+  },
+  "campaign_ready_sets": {
+    "launch_campaign": {
+      "description": "Initial product/service launch campaign",
+      "assets": {
+        "hero_ad": {},
+        "hero_image": {},
+        "social_announcement": {
+          "instagram": "Introducing our latest obsession: a refreshing new matcha drink that's as vibrant as your morning routine! Packed with antioxidants and a boost of energy, this is the perfect way to power through the day. Try it now and let us know what you think! #matchalife #newlaunch #energyboost",
+          "tiktok": "Wake up to a brighter you! Introducing our new matcha drink, packed with antioxidants and a boost of energy to kickstart your day! #matcha #breakfastgoals #morningmotivation",
+          "linkedin": "Revolutionize your morning routine with our new matcha drink! Packed with antioxidants and a boost of energy, this game-changing beverage is about to become your new favorite. What's your go-to morning pick-me-up? Share with us in the comments! #InnovationInBeverages #MatchaLove #WellnessAtWork"
+        },
+        "email_header": {}
+      },
+      "timeline": "Week 1: Launch announcement across all platforms"
+    },
+    "engagement_campaign": {
+      "description": "Ongoing engagement and awareness campaign",
+      "assets": {
+        "social_series": {
+          "instagram": [
+            "Introducing our latest obsession: a refreshing new matcha drink that's as vibrant as your morning routine! Packed with antioxidants and a boost of energy, this is the perfect way to power through the day. Try it now and let us know what you think! #matchalife #newlaunch #energyboost",
+            "Ever wondered what goes into crafting the perfect matcha drink? We're giving you a sneak peek behind the scenes of our new matcha production process! From sourcing the finest green tea leaves to blending the perfect balance of flavors, we're committed to bringing you the best. Share with us what you're drinking to stay energized and focused! #matchaproduction #greenliving #energylife",
+            "Who else is ready to level up their morning routine? Our new matcha drink is not only delicious, but also packed with nutrients and antioxidants to keep you going all day long! Share with us your favorite way to enjoy your matcha and tag a friend who needs a boost! #matchalove #morningmotivation #wellnesswednesday"
+          ],
+          "tiktok": [
+            "Wake up to a brighter you! Introducing our new matcha drink, packed with antioxidants and a boost of energy to kickstart your day! #matcha #breakfastgoals #morningmotivation",
+            "Who else is ready to level up their hydration game? Our new matcha drink is here to quench your thirst and fuel your day! Try it now and let me know what you think! #matcha #hydration #newarrivals",
+            "Matcha lovers, rejoice! We're shaking things up with our new limited-edition flavor - and we want you to be the first to try it! Share your experience with us and tag a friend who needs a matcha fix! #matcha #limitededition #matchalove"
+          ],
+          "linkedin": [
+            "Revolutionize your morning routine with our new matcha drink! Packed with antioxidants and a boost of energy, this game-changing beverage is about to become your new favorite. What's your go-to morning pick-me-up? Share with us in the comments! #InnovationInBeverages #MatchaLove #WellnessAtWork",
+            "Did you know matcha is more than just a trendy drink? It's a symbol of Japanese innovation and tradition. Our new matcha drink is crafted with the finest ingredients and a commitment to sustainability. Learn more about our production process and values in our latest blog post (link in bio)! #SustainabilityInAction #MatchaCulture #InnovationMatters",
+            "What's the perfect pairing for our new matcha drink? Let us know in the comments! We're giving away a free drink to one lucky winner who shares their favorite matcha-based snack or recipe. #MatchaPairingChallenge #InnovationInFood #GiveawayTime"
+          ]
+        },
+        "visual_content": [],
+        "user_content": "UGC scripts for customer engagement"
+      },
+      "timeline": "Weeks 2-4: Sustained engagement content"
+    },
+    "conversion_campaign": {
+      "description": "Direct response and conversion campaign",
+      "assets": {
+        "conversion_ads": [],
+        "product_images": [],
+        "email_sequence": []
+      },
+      "timeline": "Ongoing: Performance marketing focus"
+    }
+  },
+  "usage_guidelines": {
+    "general_guidelines": [
+      "Maintain brand consistency across all platforms",
+      "Adapt content tone for each platform's audience",
+      "Test different variants to optimize performance",
+      "Track engagement metrics for continuous improvement",
+      "Ensure legal compliance for all markets"
+    ],
+    "platform_specific": {
+      "social_media": [
+        "Post during optimal engagement hours",
+        "Engage with comments and messages promptly",
+        "Use platform-native features (stories, reels, etc.)",
+        "Monitor trending topics and hashtags",
+        "Maintain consistent posting schedule"
+      ],
+      "advertising": [
+        "A/B test ad copy and creative variants",
+        "Monitor ad performance metrics closely",
+        "Adjust targeting based on engagement data",
+        "Comply with platform advertising policies",
+        "Set appropriate budget and bidding strategies"
+      ],
+      "email_marketing": [
+        "Segment audiences for personalization",
+        "Test subject lines and send times",
+        "Ensure mobile optimization",
+        "Include clear unsubscribe options",
+        "Monitor deliverability rates"
+      ]
+    },
+    "content_refresh": {
+      "frequency": "Review and refresh content monthly",
+      "performance_threshold": "Refresh assets with declining engagement",
+      "seasonal_updates": "Adapt content for seasonal campaigns",
+      "trend_monitoring": "Incorporate current trends and topics"
+    }
+  },
+  "export_formats": {
+    "json": {
+      "full_package": "Complete asset package in JSON format",
+      "individual_assets": "Each asset type as separate JSON file",
+      "platform_specific": "Platform-optimized JSON exports"
+    },
+    "csv": {
+      "ad_copy_spreadsheet": [],
+      "social_content_calendar": [
+        {
+          "platform": "instagram",
+          "caption_number": 1,
+          "caption_text": "Introducing our latest obsession: a refreshing new matcha drink that's as vibrant as your morning routine! Packed with antioxidants and a boost of energy, this is the perfect way to power through the day. Try it now and let us know what you think! #matchalife #newlaunch #energyboost",
+          "character_count": 283,
+          "hashtags": "#matchalife, #newlaunch, #energyboost",
+          "optimal_posting_time": "11:00 AM - 2:00 PM"
+        },
+        {
+          "platform": "instagram",
+          "caption_number": 2,
+          "caption_text": "Ever wondered what goes into crafting the perfect matcha drink? We're giving you a sneak peek behind the scenes of our new matcha production process! From sourcing the finest green tea leaves to blending the perfect balance of flavors, we're committed to bringing you the best. Share with us what you're drinking to stay energized and focused! #matchaproduction #greenliving #energylife",
+          "character_count": 386,
+          "hashtags": "#matchaproduction, #greenliving, #energylife",
+          "optimal_posting_time": "11:00 AM - 2:00 PM"
+        },
+        {
+          "platform": "instagram",
+          "caption_number": 3,
+          "caption_text": "Who else is ready to level up their morning routine? Our new matcha drink is not only delicious, but also packed with nutrients and antioxidants to keep you going all day long! Share with us your favorite way to enjoy your matcha and tag a friend who needs a boost! #matchalove #morningmotivation #wellnesswednesday",
+          "character_count": 315,
+          "hashtags": "#matchalove, #morningmotivation, #wellnesswednesday",
+          "optimal_posting_time": "11:00 AM - 2:00 PM"
+        },
+        {
+          "platform": "tiktok",
+          "caption_number": 1,
+          "caption_text": "Wake up to a brighter you! Introducing our new matcha drink, packed with antioxidants and a boost of energy to kickstart your day! #matcha #breakfastgoals #morningmotivation",
+          "character_count": 173,
+          "hashtags": "#matcha, #breakfastgoals, #morningmotivation",
+          "optimal_posting_time": "6:00 AM - 10:00 AM"
+        },
+        {
+          "platform": "tiktok",
+          "caption_number": 2,
+          "caption_text": "Who else is ready to level up their hydration game? Our new matcha drink is here to quench your thirst and fuel your day! Try it now and let me know what you think! #matcha #hydration #newarrivals",
+          "character_count": 196,
+          "hashtags": "#matcha, #hydration, #newarrivals",
+          "optimal_posting_time": "6:00 AM - 10:00 AM"
+        },
+        {
+          "platform": "tiktok",
+          "caption_number": 3,
+          "caption_text": "Matcha lovers, rejoice! We're shaking things up with our new limited-edition flavor - and we want you to be the first to try it! Share your experience with us and tag a friend who needs a matcha fix! #matcha #limitededition #matchalove",
+          "character_count": 235,
+          "hashtags": "#matcha, #limitededition, #matchalove",
+          "optimal_posting_time": "6:00 AM - 10:00 AM"
+        },
+        {
+          "platform": "linkedin",
+          "caption_number": 1,
+          "caption_text": "Revolutionize your morning routine with our new matcha drink! Packed with antioxidants and a boost of energy, this game-changing beverage is about to become your new favorite. What's your go-to morning pick-me-up? Share with us in the comments! #InnovationInBeverages #MatchaLove #WellnessAtWork",
+          "character_count": 295,
+          "hashtags": "#InnovationInBeverages, #MatchaLove, #WellnessAtWork",
+          "optimal_posting_time": "10:00 AM - 11:00 AM"
+        },
+        {
+          "platform": "linkedin",
+          "caption_number": 2,
+          "caption_text": "Did you know matcha is more than just a trendy drink? It's a symbol of Japanese innovation and tradition. Our new matcha drink is crafted with the finest ingredients and a commitment to sustainability. Learn more about our production process and values in our latest blog post (link in bio)! #SustainabilityInAction #MatchaCulture #InnovationMatters",
+          "character_count": 349,
+          "hashtags": "#SustainabilityInAction, #MatchaCulture, #InnovationMatters",
+          "optimal_posting_time": "10:00 AM - 11:00 AM"
+        },
+        {
+          "platform": "linkedin",
+          "caption_number": 3,
+          "caption_text": "What's the perfect pairing for our new matcha drink? Let us know in the comments! We're giving away a free drink to one lucky winner who shares their favorite matcha-based snack or recipe. #MatchaPairingChallenge #InnovationInFood #GiveawayTime",
+          "character_count": 244,
+          "hashtags": "#MatchaPairingChallenge, #InnovationInFood, #GiveawayTime",
+          "optimal_posting_time": "10:00 AM - 11:00 AM"
+        }
+      ],
+      "asset_inventory": []
+    },
+    "zip_packages": {
+      "complete_package": "All assets in organized folder structure",
+      "platform_kits": "Individual platform packages",
+      "campaign_sets": "Campaign-specific asset bundles"
+    },
+    "integration_ready": {
+      "cms_import": "Format for content management systems",
+      "social_schedulers": "Format for social media scheduling tools",
+      "email_platforms": "Format for email marketing platforms"
+    }
+  },
+  "quality_checklist": [
+    {
+      "category": "Content Quality",
+      "items": [
+        "All copy is grammatically correct and error-free",
+        "Brand tone is consistent across all assets",
+        "Key messages are clearly communicated",
+        "Call-to-actions are compelling and clear",
+        "Content aligns with target audience preferences"
+      ]
+    },
+    {
+      "category": "Technical Specifications",
+      "items": [
+        "Images meet platform dimension requirements",
+        "Character counts are within platform limits",
+        "Video scripts include proper timing cues",
+        "All assets are properly formatted for export",
+        "File naming conventions are consistent"
+      ]
+    },
+    {
+      "category": "Brand Compliance",
+      "items": [
+        "Brand colors are accurately represented",
+        "Visual style aligns with brand guidelines",
+        "Logo usage follows brand standards",
+        "Messaging adheres to brand voice",
+        "Legal compliance requirements are met"
+      ]
+    },
+    {
+      "category": "Platform Optimization",
+      "items": [
+        "Content is optimized for each platform",
+        "Hashtags are relevant and trending",
+        "Image formats are platform-appropriate",
+        "Video content follows platform best practices",
+        "Engagement features are properly utilized"
+      ]
+    }
+  ],
+  "performance_tracking": {
+    "kpi_metrics": {
+      "engagement": [
+        "likes",
+        "comments",
+        "shares",
+        "saves"
+      ],
+      "reach": [
+        "impressions",
+        "reach",
+        "frequency"
+      ],
+      "conversion": [
+        "clicks",
+        "conversions",
+        "cost_per_conversion"
+      ],
+      "brand": [
+        "brand_awareness",
+        "sentiment",
+        "recall"
+      ]
+    },
+    "tracking_setup": {
+      "utm_parameters": "Add tracking codes to all links",
+      "pixel_implementation": "Ensure tracking pixels are installed",
+      "analytics_integration": "Connect to Google Analytics and platform analytics",
+      "reporting_schedule": "Weekly performance reviews"
+    },
+    "optimization_triggers": {
+      "low_engagement": "Refresh content if engagement drops below 2%",
+      "high_cost": "Optimize if cost per click exceeds target by 50%",
+      "poor_conversion": "Review and test new variants if conversion rate drops",
+      "audience_fatigue": "Rotate creative assets every 2 weeks"
+    },
+    "success_benchmarks": {
+      "social_engagement": "Aim for 3-5% engagement rate",
+      "email_open_rate": "Target 25-30% open rate",
+      "click_through_rate": "Target 2-3% CTR for ads",
+      "conversion_rate": "Target 2-5% conversion rate"
+    }
+  }
+}

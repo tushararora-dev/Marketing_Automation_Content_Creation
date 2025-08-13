@@ -114,10 +114,14 @@ def create_image_prompt(
     # Content Focus: {', '.join(content_pillars[:3])}
     # """
 
-    base_prompt = f"""
-    Create a high-quality {image_type} image.
+    # base_prompt = f"""
+    # Create a high-quality {image_type} image.
     
-    Product/Service: {product_description}
+    # Product/Service: {product_description}
+    # """
+
+    base_prompt = f"""
+    High-quality {image_type}, showcasing: {product_description}, modern professional style, vibrant colors, clear composition, email/social/ad optimized, PNG, no background, visually engaging.
     """
 
     
@@ -204,29 +208,13 @@ def get_image_style(image_type: str) -> str:
 def get_image_dimensions(image_type: str) -> str:
     """Get optimal dimensions for different image types"""
     
-    # dimensions = {
-    #     # change when i working on gpt or other
-    #     "hero_image": "1920x1080",
-    #     "social_post": "1080x1080",
-    #     "ad_creative": "1200x628",
-    #     "product_showcase": "1000x1000"
-    # }
-
-    # dimensions = {
-    #     "hero_image": "1024x576",
-    #     "social_post": "768x768",
-    #     "ad_creative": "1024x544",
-    #     "product_showcase": "768x768"
-    # }
-
     dimensions = {
-        "hero_image": "1920x1072",
-        "social_post": "1072x1072",
-        "ad_creative": "1200x624",
-        "product_showcase": "992x992"
+        "hero_image": "1920x1080",
+        "social_post": "1080x1080",
+        "ad_creative": "1200x628",
+        "product_showcase": "1000x1000"
     }
-
-    return dimensions.get(image_type, "1072x1072")
+    return dimensions.get(image_type, "1080x1080")
 
 def generate_alt_text(image_type: str, content_strategy: Dict[str, Any]) -> str:
     """Generate descriptive alt text for accessibility"""
@@ -326,14 +314,9 @@ def generate_email_header(content_strategy: Dict[str, Any], brand_colors: str) -
     """Generate email header image"""
     
     header_prompt = f"""
-    Create a professional email header image.
-    Brand colors: {brand_colors}
-    Product/Service: {content_strategy.get('product_description', 'product')}
-    Style: Clean, professional, email-optimized
-    Dimensions: 600x200 pixels
-    Include: Brand elements, product hint, email-friendly design
-    Background: Brand colors or clean gradient
+    Professional email header, size 600x200px, brand colors {brand_colors}, includes brand elements and product hint: {content_strategy.get('product_description', 'product')}, clean modern style, email-optimized, background with brand colors or subtle gradient, PNG, no background.
     """
+
     
     try:
         header_result = generate_image(
@@ -362,13 +345,7 @@ def generate_email_hero(content_strategy: Dict[str, Any], brand_colors: str) -> 
     """Generate email hero section image"""
     
     hero_prompt = f"""
-    Create an email hero section image.
-    Product/Service: {content_strategy.get('product_description', 'product')}
-    Brand colors: {brand_colors}
-    Style: Engaging, product-focused, email-optimized
-    Dimensions: 600x400 pixels
-    Include: Product showcase, value proposition visual, CTA space
-    Layout: Centered, email-friendly composition
+    Email hero section, size 600x400px, brand colors {brand_colors}, product showcase: {content_strategy.get('product_description', 'product')}, engaging modern style, email-optimized, includes value proposition visual and space for CTA, centered clean layout, PNG, no background.
     """
     
     try:
@@ -398,13 +375,9 @@ def generate_email_footer(content_strategy: Dict[str, Any], brand_colors: str) -
     """Generate email footer elements"""
     
     footer_prompt = f"""
-    Create email footer elements.
-    Brand colors: {brand_colors}
-    Style: Professional, trust-building, minimal
-    Dimensions: 600x150 pixels
-    Include: Social media icons, contact info space, professional design
-    Layout: Clean, organized, email-compliant
+    Email footer, size 600x150px, brand colors {brand_colors}, minimal professional style, includes social media icons and space for contact info, clean organized layout, trust-building design, PNG, no background.
     """
+
     
     try:
         footer_result = generate_image(
@@ -436,12 +409,7 @@ def generate_email_cta_buttons(content_strategy: Dict[str, Any], brand_colors: s
     
     # Primary CTA button
     primary_cta_prompt = f"""
-    Create a primary CTA button for email.
-    Brand colors: {brand_colors}
-    Style: Bold, clickable, professional
-    Text: "Shop Now" or "Get Started"
-    Dimensions: 200x50 pixels
-    Design: Rounded corners, strong contrast, email-optimized
+    Bold clickable CTA button for email, text "Get Started", size 200x50px, brand colors {brand_colors}, white text, rounded corners, strong contrast, subtle shadow, clean professional style, PNG, no background.
     """
     
     try:
@@ -469,13 +437,9 @@ def generate_email_cta_buttons(content_strategy: Dict[str, Any], brand_colors: s
     
     # Secondary CTA button
     secondary_cta_prompt = f"""
-    Create a secondary CTA button for email.
-    Brand colors: {brand_colors}
-    Style: Subtle, secondary action, professional
-    Text: "Learn More" or "View Details"
-    Dimensions: 180x40 pixels
-    Design: Outline style, less prominent than primary
+    Subtle secondary CTA button for email, text "Learn More" or "View Details", size 180x40px, outline style using brand colors {brand_colors}, white or dark text, rounded corners, clean professional look, less prominent than primary, PNG, no background.
     """
+
     
     try:
         secondary_result = generate_image(

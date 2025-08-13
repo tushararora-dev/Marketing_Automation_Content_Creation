@@ -1,11 +1,15 @@
 import streamlit as st
 import json
 import os
+import re
 from pathlib import Path
 from agents.marketing_automation_agent import run_marketing_automation_workflow
 from agents.content_generation_agent import run_content_generation_workflow
 from tools.browser_utils import analyze_brand_from_url
 from config.settings import load_config
+import csv
+import zipfile
+from io import BytesIO
 
 # Initialize configuration
 config = load_config()
@@ -34,6 +38,7 @@ def main():
             <p style='text-align: justify;'>View structured campaign plan with detailed strategy</p>
             <p style='text-align: justify;'>Generate fully-written, conversion-focused email</p>
             <p style='text-align: justify;'>Generate conversion-focused SMS with Call to action</p>
+            <p style='text-align: justify;'>Generate Email Assets like Header, Product Visual, CTAs</p>
             """,unsafe_allow_html=True)
         marketing_automation_interface()
 
@@ -45,6 +50,8 @@ def main():
             <p style='text-align: justify;'>Captions for Instagram, TikTok and Linkedin</p>
             <p style='text-align: justify;'>Static creatives for images (utilising AI design tools)</p>
             <p style='text-align: justify;'>Scripts for UGC-style videos or product demonstrations</p>
+            <p style='text-align: justify;'>Generate Email Assets like Header, Footer and CTAs</p>
+            <p style='text-align: justify;'>Download project assets and content packages for offline use.</p>
             """,
             unsafe_allow_html=True
         )
@@ -52,7 +59,6 @@ def main():
 
         content_generation_interface()
    
-
 def marketing_automation_interface():
     st.header("📧 Marketing Automation Agent 📈")
     
@@ -144,7 +150,6 @@ def marketing_automation_interface():
     if hasattr(st.session_state, 'marketing_result') and st.session_state.marketing_result:
         display_marketing_results(st.session_state.marketing_result)
 
-
 def content_generation_interface():
     st.header("✍️ Content Generation Agent ✨")
     col1, col2 = st.columns([2, 1])
@@ -177,8 +182,6 @@ def content_generation_interface():
                 content_types.append("social_captions")
             if st.checkbox("Email Creative Assets"):
                 content_types.append("email_creative")
-            if st.checkbox("Generate Logo (Coming Soon)", value=False, disabled=True):
-                content_types.append("logo")
         
         with col_b:
             if st.checkbox("Static Images"):
@@ -187,8 +190,7 @@ def content_generation_interface():
                 content_types.append("ugc_scripts")
             if st.checkbox("Product Visuals"):
                 content_types.append("product_visuals")
-            if st.checkbox("AI Video Generator(Coming Soon)", value=False, disabled=True):
-                content_types.append("product_visuals")
+
         
         # Brand guidelines
         st.subheader("Brand Guidelines")
@@ -225,9 +227,41 @@ def content_generation_interface():
         st.write("Product/Service Description: We’re launching a new matcha drink")
         st.write("Target Audience: Gen Z")
 
+        st.subheader("Recent Content Packages")
+
+        export_path = Path("export")
+        if export_path.exists():
+            # Get all JSON files sorted by modification time (latest first)
+            memory_files = sorted(export_path.glob("content_package_*.json"), key=lambda x: x.stat().st_mtime, reverse=True)
+            
+            if memory_files:
+                for file in memory_files[:3]:  # Show last 3
+                    st.write(f"📁 {file.stem}")  # Show file name without extension
+            else:
+                st.write("No previous content packages found")
+        else:
+            st.write("No previous content packages found")
+
+        st.subheader("Recent Asset Folders")
+
+        export_path = Path("export")
+        if export_path.exists():
+            # Get all folders starting with "assets_" sorted by modification time (latest first)
+            asset_folders = sorted(
+                [f for f in export_path.glob("assets_*") if f.is_dir()],
+                key=lambda x: x.stat().st_mtime,
+                reverse=True
+            )
+
+            if asset_folders:
+                for folder in asset_folders[:3]:  # Show last 3
+                    st.write(f"📁 {folder.name}")  # Show folder name only
+            else:
+                st.write("No previous asset folders found")
+        else:
+            st.write("No previous asset folders found")
 
 
-    
     # Display results
     if hasattr(st.session_state, 'content_result') and st.session_state.content_result:
         display_content_results(st.session_state.content_result)
@@ -263,6 +297,30 @@ def display_marketing_results(result):
         for i, sms in enumerate(result['sms'], 1):
             with st.expander(f"SMS {i}"):
                 st.write(sms.get('full_response', ''))
+
+
+    if result.get('visuals'):  # non-empty list
+        st.subheader("🖼️ Generated Images")
+        
+        images = result['visuals']
+        # Create two columns for every two images
+        for i in range(0, len(images), 2):
+            cols = st.columns(2)
+            for j, col in enumerate(cols):
+                idx = i + j
+                if idx < len(images):
+                    image_info = images[idx]
+                    with col:
+                        st.write(f"**{image_info['type']}:** {image_info['description']}")
+                        if image_info.get("image_obj") is not None:
+                            st.image(image_info["image_obj"], width=400)
+                        else:
+                            st.write("Image not available")
+    # Final Package
+    st.subheader("🗂️ Campaign Flow")
+    with st.expander("campaign_flow"):
+        st.write(result.get('campaign_flow'))
+
     
     # Export options
     st.subheader("📥 Export Options")
@@ -282,7 +340,7 @@ def display_marketing_results(result):
     with col3:
         if st.button("Save to Memory"):
             save_to_memory(result)
-            st.success("Saved to memory")
+            st.success("Saved to memory") 
 
 def display_content_results(result):
     st.header("✍️ Content Generation Assets ✨")
@@ -353,21 +411,112 @@ def display_content_results(result):
                         else:
                             st.write("Image not available")
 
-    
+        
+
+    # Final Package
+    st.subheader("🗂️ Final_package")
+    with st.expander("final_package"):
+        st.write(result.get('final_package'))
+
+
     # Export options
     st.subheader("📥 Export Options")
     col1, col2 = st.columns(2)
     
     with col1:
-        if st.button("Export Content Package"):
-            export_path = f"export/content_package_{result.get('timestamp', 'unknown')}.json"
-            with open(export_path, 'w') as f:
-                json.dump(result, f, indent=2)
+        if st.button("📦 Export & Download Content Package"):
+            # Ensure export folder exists
+            os.makedirs("export", exist_ok=True)
+
+            # Get timestamp and sanitize it for filename
+            raw_timestamp = str(result.get('timestamp', 'unknown'))
+            safe_timestamp = re.sub(r'[^0-9A-Za-z_-]', '_', raw_timestamp)  # only keep safe chars
+
+            # Create file path
+            export_path = f"export/content_package_{safe_timestamp}.json"
+
+            # Save only final_package to JSON
+            with open(export_path, 'w', encoding='utf-8') as f:
+                json.dump(result.get('final_package'), f, indent=2, ensure_ascii=False)
+
             st.success(f"Exported to {export_path}")
-    
+
+            # Reopen the saved file for download
+            with open(export_path, "rb") as f:
+                st.download_button(
+                    label="📥 Click to Download Now",
+                    data=f,
+                    file_name=os.path.basename(export_path),
+                    mime="application/json"
+                )
+
     with col2:
-        if st.button("Download Assets"):
-            st.info("Asset download functionality coming soon")
+        if st.button("📦 Export & Download Assets"):
+            # Ensure export folder exists
+            os.makedirs("export", exist_ok=True)
+
+            # Sanitize timestamp
+            raw_timestamp = str(result.get('timestamp', 'unknown'))
+            safe_timestamp = re.sub(r'[^0-9A-Za-z_-]', '_', raw_timestamp)
+
+            # Create asset folder
+            asset_folder = Path(f"export/assets_{safe_timestamp}")
+            asset_folder.mkdir(parents=True, exist_ok=True)
+
+            # Save text assets (ad_copy, captions, scripts) to CSV
+            text_file_path = asset_folder / "text_assets.csv"
+            with open(text_file_path, "w", newline="", encoding="utf-8") as csvfile:
+                writer = csv.writer(csvfile)
+                writer.writerow(["Type", "Content"])  # header
+
+                # Ad copy
+                if result.get('ad_copy'):
+                    for ad in result['ad_copy']:
+                        writer.writerow(["Ad Headline", ad.get('headline', '')])
+                        writer.writerow(["Ad Primary Text", ad.get('description', '')])
+                        writer.writerow(["Ad CTA", ad.get('cta', '')])
+
+                # Social captions
+                if result.get('social_captions'):
+                    for platform, captions in result['social_captions'].items():
+                        for caption in captions:
+                            writer.writerow([f"{platform} Caption", caption])
+
+                # UGC scripts
+                if result.get('ugc_scripts'):
+                    for script in result['ugc_scripts']:
+                        writer.writerow(["UGC Script Title", script.get('title', '')])
+                        writer.writerow(["UGC Script", script.get('script', '')])
+
+            # Save image assets
+            if result.get('images'):
+                for idx, img_info in enumerate(result['images'], start=1):
+                    if img_info.get("image_obj") is not None:
+                        img_path = asset_folder / f"image_{idx}.png"
+                        img_info["image_obj"].save(img_path)
+
+            if result.get('email_assets'):
+                for idx, img_info in enumerate(result['email_assets'], start=1):
+                    if img_info.get("image_obj") is not None:
+                        img_path = asset_folder / f"email_asset_{idx}.png"
+                        img_info["image_obj"].save(img_path)
+
+            # Create a ZIP of all assets
+            zip_buffer = BytesIO()
+            with zipfile.ZipFile(zip_buffer, "w") as zipf:
+                for file_path in asset_folder.rglob("*"):
+                    zipf.write(file_path, file_path.relative_to(asset_folder.parent))
+            zip_buffer.seek(0)
+
+            # Download button for ZIP
+            st.download_button(
+                label="📥 Download All Assets (ZIP)",
+                data=zip_buffer,
+                file_name=f"assets_{safe_timestamp}.zip",
+                mime="application/zip"
+            )
+
+            st.success(f"Assets saved to {asset_folder}")
 
 def save_to_memory(result):
     """Save campaign result to memory for future reference"""

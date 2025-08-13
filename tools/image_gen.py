@@ -121,7 +121,7 @@ from typing import Dict, Any
 def generate_image(
     prompt: str,
     style: str = "vivid",
-    dimensions: str = None,
+    dimensions: str = "1024x1024",
     n_images: int = 1
 ) -> Dict[str, Any]:
     """
@@ -148,8 +148,10 @@ def generate_image(
 
     config = load_config()
 
-    if dimensions is None:
-        dimensions = f"{config['image_width']}x{config['image_height']}"
+    # if dimensions is None:
+    #     dimensions = f"{config['image_width']}x{config['image_height']}"
+    width, height = parse_dimensions(dimensions)
+    dimensionss = f"{width}x{height}"
 
     api_url = config["euron_image_gen_url"]
     headers = get_euron_headers(config["euron_api_key"])
@@ -158,7 +160,7 @@ def generate_image(
         "prompt": prompt,
         "model": config["euron_flux_model"],
         "n": n_images,
-        "size": dimensions,
+        "size": dimensionss,
         "quality": config.get("image_quality", "standard"),
         "response_format": config.get("image_response_format", "url"),
         "style": style
@@ -197,7 +199,7 @@ def generate_image(
                     "image_obj": image,
                     "filename": filename,
                     "prompt": prompt,
-                    "dimensions": dimensions,
+                    "dimensions": dimensionss,
                     "size_bytes": len(image_data),
                     "format": image.format or "PNG",
                     "generated_at": timestamp,
